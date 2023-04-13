@@ -2,34 +2,29 @@
 
 const userController = {
     register : function(req, res) {
-        return res.render('user', {
+        return res.render('register', {
 
-            signedin: false,
-            section:1
+
         });
     },
 
     profile : function(req, res) {
-        return res.render('user', {
+        return res.render('profile', {
 
-            signedin: true,
-            section:2
+
         });
     }
     
     ,
     profileedit : function(req, res) {
-        return res.render('user', {
+        return res.render('profileEdit', {
 
-            signedin: true,
-            section:3
         });
     },
     profilelogin: function(req, res) {
-        return res.render('user', {
+        return res.render('login', {
 
-            signedin: false,
-            section:4
+
         });
     }
 }
