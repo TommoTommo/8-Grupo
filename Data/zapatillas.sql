@@ -41,3 +41,54 @@ CREATE TABLE comentarios(
     FkProdId INT(11) UNSIGNED NOT NULL,
     FOREIGN KEY (FkpRODid) REFERENCES productos(id)
 );
+
+INSERT INTO usuarios (nombre, email, pass, foto) VALUES
+("Teresa", "tere@gmail.com", "1234", "default-image.png"),
+("Thomas", "thomas@gmail.com", "1234", "default-image.png"),
+("Agustin", "agus@outlook.com", "1234", "default-image.png"),
+("Pedro", "pedro@hotmail.com", "1234", "default-image.png"),
+("Paula", "paula@yahoo.com", "1234", "default-image.png");
+
+INSERT INTO productos (nomnbre, descripcion, imagen, FkUserId) VALUES
+("Nike Quest", "Zapatillas de vestir para mujer", "img-nike-quest.png", 1),
+("Jordan Air", "Zapatillas de running para hombre", "img-jordan-air.png", 1),
+("Adidas mujer forumlow", "Zapatillas de running para mujer", "img-adidas-forumlow.png", 2),
+("Adidas runfalcom", "Zapatillas de running para hombre", "img-adidas-runfalcon.png", 3),
+("Adidas running","Zapatillas de running para hombre","img-adidas-running.png",3),
+("Jordan Chicago","Zapatillas de running para hombre","img-jordan-chicago.png",4),
+("Nike Revolution","Zapatillas de running para hombre","img-nike-revolution.png",4),
+("Reebok Mujer","Zapatillas de running para mujer","img-reebok-mujer.png",4);
+
+INSERT INTO comentarios (comentario, FkUserId, FkProdId) VALUES
+("Muy buena calidad",1,1),
+("Muy buena calidad",2,1),
+("Buen producto",3,1),
+("Excelente calidad",4,1),
+("Excelente. Me la mordio el perro y sigue funcionando",1,2),
+("Mala calidad",2,2),
+("Pocas opciones de envio",3,2),
+("Me encanto",4,2),
+("Me vendieron las truchas",1,3),
+("Muy buena calidad",2,3),
+("Muy buena calidad",3,3),
+("Buena la atencion",4,3),
+("Tardaron mucho en llegar",1,4),
+("Buen servicio de envio",2,4),
+("Me llegaron intactas. Gracias",3,4),
+("Atencion personalizada",4,4),
+("Estoy muy contecta con lo que me llego ",1,5),
+("Muy buena calidad",2,5),
+("Ansioso por volver a comprar con ustedes",3,5),
+("Me llegaron en mal estado",4,5),
+("Muy buena calidad",1,6),
+("Muy buena calidad",2,6),
+("Pesimo servicio",3,6),
+("Muy buena calidad la del producto",4,6),
+("No voy a voler a comprar sus productos",1,7),
+("No me contestaron nunca. Pesima la atencion",2,7),
+("Muy descontenta con la compra",3,7),
+("Me llego en otro talle, tuve que volver a enviarla",4,7),
+("Era lo que esperaba",1,8),
+("Sigo esperando una respuesta",2,8),
+("Mala atencion al cliente",3,8),
+("excelente calidad y servicio",4,8);
