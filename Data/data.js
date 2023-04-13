@@ -49,7 +49,7 @@ let listaDeZapatillas = [
                 //("Muy buena calidad",1,3),
                 
                 id: 3,
-                comentatio: "Muy buena calidad",
+                comentatio: "Buen producto",
                 usuario: {
                     id: 3,
                     nombre: "Agustín",
@@ -63,7 +63,7 @@ let listaDeZapatillas = [
                //("Muy buena calidad",1,4),
                 
                 id: 4,
-                comentatio: "Muy buena calidad",
+                comentatio: "Excelente calidad",
                 usuario: {
                     id: 4,
                     nombre: "Pedro",
@@ -92,7 +92,7 @@ let listaDeZapatillas = [
         comentarios: [
             {
                 id: 5,
-                comentatio: "Muy buena calidad",
+                comentatio: "Excelente. Me la mordió el perro y sigue funcionando",
                 usuario: {
                     id: 1,
                     nombre: "Teresa",
@@ -104,7 +104,7 @@ let listaDeZapatillas = [
             },
             {
                 id: 6,
-                comentatio: "Muy buena calidad",
+                comentatio: "Mala calidad",
                 usuario: {
                     id: 2,
                     nombre: "Thomas",
@@ -116,7 +116,7 @@ let listaDeZapatillas = [
             },
             {
                 id: 7,
-                comentatio: "Muy buena calidad",
+                comentatio: "Pocas opciones de envío",
                 usuario: {
                     id: 3,
                     nombre: "Agustín",
@@ -128,7 +128,7 @@ let listaDeZapatillas = [
             },
             {
                 id: 8,
-                comentatio: "Muy buena calidad",
+                comentatio: "Me encantó",
                 usuario: {
                     id: 4,
                     nombre: "Pedro",
@@ -157,7 +157,7 @@ let listaDeZapatillas = [
         comentarios: [
             {
                 id: 9,
-                comentatio: "Muy buena calidad",
+                comentatio: "Me vendieron las truchas",
                 usuario: {
                     id: 1,
                     nombre: "Teresa",
@@ -193,7 +193,7 @@ let listaDeZapatillas = [
             },
             {
                 id: 12,
-                comentatio: "Muy buena calidad",
+                comentatio: "Buena la atención",
                 usuario: {
                     id: 4,
                     nombre: "Pedro",
@@ -222,7 +222,7 @@ let listaDeZapatillas = [
         comentarios: [
             {
                 id: 13,
-                comentatio: "Muy buena calidad",
+                comentatio: "Tardaron mucho en llegar",
                 usuario: {
                     id: 1,
                     nombre: "Teresa",
@@ -234,7 +234,7 @@ let listaDeZapatillas = [
             },
             {
                 id: 14,
-                comentatio: "Muy buena calidad",
+                comentatio: "Buen servicio de envío",
                 usuario: {
                     id: 2,
                     nombre: "Thomas",
@@ -246,7 +246,7 @@ let listaDeZapatillas = [
             },
             {
                 id: 15,
-                comentatio: "Muy buena calidad",
+                comentatio: "Me llegaron intactas. Gracias",
                 usuario: {
                     id: 3,
                     nombre: "Agustín",
@@ -258,7 +258,7 @@ let listaDeZapatillas = [
             },
             {
                 id: 16,
-                comentatio: "Muy buena calidad",
+                comentatio: "Atención personalizada",
                 usuario: {
                     id: 4,
                     nombre: "Pedro",
@@ -287,7 +287,7 @@ let listaDeZapatillas = [
         comentarios: [
             {
                 id: 17,
-                comentatio: "Muy buena calidad",
+                comentatio: "Estoy muy contenta con lo que me llegó",
                 usuario: {
                     id: 1,
                     nombre: "Teresa",
@@ -311,7 +311,7 @@ let listaDeZapatillas = [
             },
             {
                 id: 19,
-                comentatio: "Muy buena calidad",
+                comentatio: "Ansioso por volver a comprar con ustedes",
                 usuario: {
                     id: 3,
                     nombre: "Agustín",
@@ -323,7 +323,7 @@ let listaDeZapatillas = [
             },
             {
                 id: 20,
-                comentatio: "Muy buena calidad",
+                comentatio: "Me llegaron en mal estado",
                 usuario: {
                     id: 4,
                     nombre: "Pedro",
@@ -376,7 +376,7 @@ let listaDeZapatillas = [
             },
             {
                 id: 23,
-                comentatio: "Muy buena calidad",
+                comentatio: "Pésimo servicio",
                 usuario: {
                     id: 3,
                     nombre: "Agustín",
@@ -388,7 +388,7 @@ let listaDeZapatillas = [
             },
             {
                 id: 24,
-                comentatio: "Muy buena calidad",
+                comentatio: "Muy buena calidad la del producto",
                 usuario: {
                     id: 4,
                     nombre: "Pedro",
@@ -417,7 +417,7 @@ let listaDeZapatillas = [
         comentarios: [
             {
                 id: 25,
-                comentatio: "Muy buena calidad",
+                comentatio: "no voy a volver a comprar sus productos",
                 usuario: {
                     id: 1,
                     nombre: "Teresa",
@@ -429,7 +429,7 @@ let listaDeZapatillas = [
             },
             {
                 id: 26,
-                comentatio: "Muy buena calidad",
+                comentatio: "No me contestaron nunca. Pésima la atención",
                 usuario: {
                     id: 2,
                     nombre: "Thomas",
@@ -441,7 +441,7 @@ let listaDeZapatillas = [
             },
             {
                 id: 27,
-                comentatio: "Muy buena calidad",
+                comentatio: "Muy descontenta con la compra",
                 usuario: {
                     id: 3,
                     nombre: "Agustín",
@@ -453,7 +453,7 @@ let listaDeZapatillas = [
             },
             {
                 id: 28,
-                comentatio: "Muy buena calidad",
+                comentatio: "Me llego en otro talle, tuve que volver a enviarla",
                 usuario: {
                     id: 4,
                     nombre: "Pedro",
@@ -482,7 +482,7 @@ let listaDeZapatillas = [
         comentarios: [
             {
                 id: 29,
-                comentatio: "Muy buena calidad",
+                comentatio: "Era lo que esperaba",
                 usuario: {
                     id: 1,
                     nombre: "Teresa",
@@ -494,7 +494,7 @@ let listaDeZapatillas = [
             },
             {
                 id: 30,
-                comentatio: "Muy buena calidad",
+                comentatio: "Sigo esperando una respuesta",
                 usuario: {
                     id: 2,
                     nombre: "Thomas",
@@ -506,7 +506,7 @@ let listaDeZapatillas = [
             },
             {
                 id: 31,
-                comentatio: "Muy buena calidad",
+                comentatio: "Mala atención al cliente",
                 usuario: {
                     id: 3,
                     nombre: "Agustín",
@@ -518,7 +518,7 @@ let listaDeZapatillas = [
             },
             {
                 id: 32,
-                comentatio: "Muy buena calidad",
+                comentatio: "Excelente calidad y servicio",
                 usuario: {
                     id: 4,
                     nombre: "Pedro",
