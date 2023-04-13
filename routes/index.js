@@ -14,5 +14,4 @@ router.get('/', indexController.index);
 router.get('/results', indexController.results);
 
 
-
 module.exports = router;
