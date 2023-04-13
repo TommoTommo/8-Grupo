@@ -1,9 +1,10 @@
 <%- include('./partials/head') %>
-<%- include('./partials/header') %>
-<body>
-	<!-- Header -->
 
-	<!-- /Header -->
+<body>
+<%- include('partials/header') %>
+	
+
+
 
 	<!-- Novedades -->
 	<div class="container products-wrapper">
@@ -13,7 +14,7 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			</h2>
-			<form action="/users/login" method="GET" class="registro">
+			<form action="/home" method="GET" class="registro">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required><br><br>
 
