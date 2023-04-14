@@ -1,5 +1,5 @@
-//ME FALTA IMPORTAR LA BASE DE DATOS
 
+const Data = require("../Data/data")
 const userController = {
     register : function(req, res) {
         return res.render('register', {
@@ -9,8 +9,17 @@ const userController = {
     },
 
     profile : function(req, res) {
-        return res.render('profile', {
 
+
+
+
+        return res.render('profile', {
+            usuario: Data.usuario.usuario,
+            email: Data.usuario.email,
+            contrasena: Data.usuario.contrasena,
+            fechanacimiento: Data.usuario.fechanacimiento,
+            documento: Data.usuario.documento,
+            foto: Data.usuario.foto
 
         });
     }
