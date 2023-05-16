@@ -1,7 +1,6 @@
 
 const Data = require("../Data/data")
 
-
 const indexController = {
     index : function(req, res) {
         listanames=[];
