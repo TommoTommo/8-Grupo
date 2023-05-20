@@ -20,7 +20,7 @@ module.exports = function(sequelize, dataTypes) {
         underscored: true, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
     };
 
-    const comments = sequelize.define(alias, cols, config);
+    const comment = sequelize.define(alias, cols, config);
 
-    return Comment;
+    return comment;
 };
