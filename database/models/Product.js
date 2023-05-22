@@ -24,7 +24,27 @@ module.exports = function(sequelize, dataTypes) {
 
     const product = sequelize.define(alias, cols, config);
 
-    product.asociate
+      /* Crear relaciones */
+
+        //relacion producto y usario A
+        product.associate = function(models) {
+        product.belongsTo(models.User, {
+            as: "user",
+            foreignKey: "FkUserId"
+        }),
+
+
+
+
+        //relacion producto comentario B
+        product.belongsToMany(models.Comment , {
+            as: "comment",
+            through: "comentarios",
+            foreignKey: "FkProdId",
+            otherKey: "FkUserId",
+            timestamps: true
+        })
+   };
 
     return product;
 };

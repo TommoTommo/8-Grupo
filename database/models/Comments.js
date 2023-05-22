@@ -22,5 +22,16 @@ module.exports = function(sequelize, dataTypes) {
 
     const comment = sequelize.define(alias, cols, config);
 
+//Hago dos aosociasiones una con users y la otra con products
+
+product.associate = function(models) {
+    comment.belongsToMany(models.Product , {
+        as: "product",
+        through: "comentarios",
+        foreignKey: "FkProdId",
+        otherKey: "FkUserId",
+        timestamps: true
+    })
+};
     return comment;
 };

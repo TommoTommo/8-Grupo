@@ -50,7 +50,9 @@ INSERT INTO usuarios (nombre, email, pass, foto) VALUES
 ("Pedro", "pedro@hotmail.com", "1234", "default-image.png"),
 ("Paula", "paula@yahoo.com", "1234", "default-image.png");
 
-INSERT INTO productos (nomnbre, descripcion, imagen, FkUserId) VALUES
+
+--//nombre mal escrito --nomnbre
+INSERT INTO productos (nombre, descripcion, imagen, FkUserId) VALUES
 ("Nike Quest", "Zapatillas de running para hombre", "img-nike-quest.png", 1),
 ("Jordan Air", "Zapatillas de running para hombre", "img-jordan-air.png", 1),
 ("Adidas mujer forumlow", "Zapatillas de running para mujer", "img-adidas-forumlow.png", 2),
@@ -60,6 +62,8 @@ INSERT INTO productos (nomnbre, descripcion, imagen, FkUserId) VALUES
 ("Nike Revolution","Zapatillas de running para hombre","img-nike-revolution.png",4),
 ("Reebok Mujer","Zapatillas de running para mujer","img-reebok-mujer.png",4);
 
+
+--//cometario mal escrito-- 
 INSERT INTO comentarios (comentario, FkUserId, FkProdId) VALUES
 ("Muy buena calidad",1,1),
 ("Muy buena calidad",2,1),
