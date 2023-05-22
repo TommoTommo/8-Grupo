@@ -64,7 +64,7 @@ INSERT INTO productos (nombre, descripcion, imagen, FkUserId) VALUES
 
 
 --//cometario mal escrito-- 
-INSERT INTO comentarios (comentario, FkUserId, FkProdId) VALUES
+INSERT INTO comentarios (comentarios, FkUserId, FkProdId) VALUES
 ("Muy buena calidad",1,1),
 ("Muy buena calidad",2,1),
 ("Buen producto",3,1),
