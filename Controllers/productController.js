@@ -30,7 +30,14 @@ const productController = {
 
 
 
-}
-}
+    },
+    /* Para mostrar producto */ 
+    showForm: (req, res) =>{
+        return res.render("productAdd")
+    },
+    store: (req, res) =>{
+        return res.redirect("/index")
+    }
+};
 
 module.exports = productController;
