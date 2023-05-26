@@ -45,17 +45,12 @@ module.exports = function(sequelize, dataTypes) {
         }),
         //otra relacion
 
+        user.hasMany(models.Comment, {
+            as: "comment1",
+            foreignKey: "FkUserId"
+        })
 
 
-
-      //relacion Usuario  y comentario 
-      user.belongsToMany(models.Comment , {
-        as: "comment2",
-        through: "comentarios",
-        foreignKey: "FkUserId",
-        otherKey: "FkProdId",
-        timestamps: true
-    })
    };
     return user;
 };

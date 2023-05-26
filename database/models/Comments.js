@@ -24,13 +24,14 @@ module.exports = function(sequelize, dataTypes) {
 
 //Hago dos aosociasiones una con users y la otra con products
 
-product.associate = function(models) {
-    comment.belongsToMany(models.Product , {
-        as: "product",
-        through: "comentarios",
-        foreignKey: "FkProdId",
-        otherKey: "FkUserId",
-        timestamps: true
+comment.associate = function(models) {
+    product.belongsTo(models.User, {
+        as: "user2",
+        foreignKey: "FkUserId"
+    })
+    product.belongsTo(models.Product, {
+        as: "product2",
+        foreignKey: "FkProdId"
     })
 };
     return comment;
