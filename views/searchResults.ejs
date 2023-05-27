@@ -15,6 +15,11 @@
 			Eliminen estás líneas y cosntruyan la página de resultados de búsqueda. <br>
 			////////////////
 			</h2>
+			<% for( let i = 0; i < listaProducts.length; i++ ) { %>
+				<li class="li">
+					<!-- <a href="/movies/id/<%= listaProducts[i].id %>"> --><%= listaProducts[i].name %> </a> 
+				</li>
+			  <% } %>
 
 </body>
 

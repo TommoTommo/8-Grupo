@@ -8,16 +8,25 @@ module.exports = function(sequelize, dataTypes) {
             primaryKey: true,
             type: dataTypes.INTEGER,
         },
-        name:{
+        nombre:{
             type: dataTypes.STRING,
         },
-        description:{
+        descripcion:{
             type: dataTypes.DECIMAL,
         }
     };
 
+    //nombre varchar(255) 
+//descripcion varchar(255) 
+//imagen varchar(255) 
+//update_at timestamp 
+//created_at timestamp 
+//deleted_at timestamp 
+//FkUserId int(11) UN
+//
+
     let config = {
-        tableName: 'products',
+        tableName: 'productos',
         timestamps: false, //Si la tabla no tiene los campos created_at y updated_at
         underscored: true, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
     };

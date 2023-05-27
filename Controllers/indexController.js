@@ -1,33 +1,43 @@
+const db = require("../database/models")
 
-const Data = require("../Data/data")
+const { Sequelize } = require("sequelize");
+
+let product= db.Product
+let op = db.Sequelize.Op
 
 const indexController = {
     index : function(req, res) {
-        listanames=[];
-        listaimages=[];
-        for (let index = 0; index < 8; index++) {
-            
-            let name = Data.productos[index].id;
-            listanames.push(name);
-            let image=Data.productos[index].image;
-            listaimages.push(image)
-        }
+
         
 
         return res.render('index', {
-        names:lista,
-        fotos: listaimages
+
         });
     },
 
-    
+    //buscador
     results : function(req, res) {
-        return res.render('searchResults', {
+        let busqueda = req.query.search
+  
+        
+
+            product.findAll({
+              where: [
+                { name: { [op.like]: "%" + busqueda + "%" } },
+              ],
+            })
+            .then(function (result) {
+              return res.render("searchResults", { listaProducts: result });
+            })
+            .catch(function (error) {
+              console.log(error);
+            })
+           } 
 
 
-        });
+
     }
 
-}
+
 
 module.exports = indexController;

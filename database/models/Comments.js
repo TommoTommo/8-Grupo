@@ -15,7 +15,7 @@ module.exports = function(sequelize, dataTypes) {
     
 
     let config = {
-        tableName: 'comments',
+        tableName: 'comentarios',
         timestamps: false, //Si la tabla no tiene los campos created_at y updated_at
         underscored: true, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
     };
@@ -25,11 +25,11 @@ module.exports = function(sequelize, dataTypes) {
 //Hago dos aosociasiones una con users y la otra con products
 
 comment.associate = function(models) {
-    product.belongsTo(models.User, {
+    comment.belongsTo(models.User, {
         as: "user2",
         foreignKey: "FkUserId"
     })
-    product.belongsTo(models.Product, {
+    comment.belongsTo(models.Product, {
         as: "product2",
         foreignKey: "FkProdId"
     })
