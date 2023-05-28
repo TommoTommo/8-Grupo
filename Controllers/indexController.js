@@ -27,7 +27,7 @@ const indexController = {
           //     ],
           //   })
           //   .then(function (result) {
-          //     return res.render("searchResults", { listaProducts: result });
+          //  return res.render("searchResults", { listaProducts: result });
           //   })
           //   .catch(function (error) {
           //     console.log(error);

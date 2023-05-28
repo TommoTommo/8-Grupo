@@ -18,6 +18,10 @@ module.exports = function(sequelize, dataTypes) {
 
             type: dataTypes.INTEGER,
         },
+        descripcion:{
+
+            type: dataTypes.STRING,
+        }
 
 
     };
