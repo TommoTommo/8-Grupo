@@ -21,23 +21,22 @@ const indexController = {
   
         
 
-            product.findAll({
-              where: [
-                { name: { [op.like]: "%" + busqueda + "%" } },
-              ],
-            })
-            .then(function (result) {
-              return res.render("searchResults", { listaProducts: result });
-            })
-            .catch(function (error) {
-              console.log(error);
-            })
+          //   product.findAll({
+          //     where: [
+          //       { name: { [op.like]: "%" + busqueda + "%" } },
+          //     ],
+          //   })
+          //   .then(function (result) {
+          //     return res.render("searchResults", { listaProducts: result });
+          //   })
+          //   .catch(function (error) {
+          //     console.log(error);
+          //   })
            } 
 
 
 
     }
 
-    console.log(product.findAll())
-    console.log("hola")
+
 module.exports = indexController;

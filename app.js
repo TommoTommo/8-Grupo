@@ -21,6 +21,23 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+let session = require("express-session")
+
+
+//config de session
+app.use(session({
+ secret: "secret",
+ resave: false,
+ saveUninitialized:true
+
+}));
+
+//pasar info de session al front end
+app.use(function(req, res, next){
+  if (req.session.user != undefined){
+    res.locals.user =req.session.user;
+  }
+})
 
 app.use('/', indexRouter);
 app.use('/user', usersRouter);

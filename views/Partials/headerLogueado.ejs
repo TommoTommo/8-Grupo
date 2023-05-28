@@ -69,6 +69,10 @@
 				</ul>
 			</nav>
 		</div>
+		<% if (locals.user!=null)  {%>
+			<p>Bienvenido <% locals.user.nombre %></p>
+		<% }  %>
+		
 	</header>
 	<!-- /Header -->
 	

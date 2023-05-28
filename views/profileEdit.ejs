@@ -1,8 +1,12 @@
-<%- include('./partials/head') %>
-<%- include('./partials/headerLogueado') %>
+<% include('./partials/head') %>
 
 <body>
-    
+ <% if (locals.user != null){%>
+	<% include('./partials/headerLogueado')  %>
+ <%} %>
+ <% else {%>
+	<%- include('./partials/header') %>
+	<%}%>
 
 <div class="container products-wrapper">
     <div class="row">

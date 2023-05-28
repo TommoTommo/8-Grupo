@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 const indexController = require("../Controllers/indexController"); 
 
 
-router.get('/results', indexController.results);
+// router.get('/results', indexController.results);
 
 
 module.exports = router;

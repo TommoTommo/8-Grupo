@@ -1,6 +1,17 @@
-  <%- include('./partials/head') %>
-  <%- include('./partials/header') %>
+  
 
+ <% include('./partials/head') %>
+
+<body>
+ <% if (locals.user != null){%>
+	<% include('./partials/headerLogueado')  %>
+ <%} %>
+ <% else {%>
+	<%- include('./partials/header') %>
+	<%}%>
+ 	
+
+ 
   	<!-- Banner -->
 	<div class="banner">
 		<img src="images/img-home-banner.jpg" alt="Banner de ofertas">
@@ -142,5 +153,5 @@
 		</div>
 	</div>
 	<!-- /Más comentados -->
-
+</body>
 <%- include('./partials/footer') %>
