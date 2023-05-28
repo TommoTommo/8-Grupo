@@ -14,7 +14,7 @@ router.get("/register", productController.showForm);
 router.post("/register", productController.store); /* grabacion crud 1:01:26
 
 /* */
-
+router.get('/id/:id', movieController.product);
 /* */
 
 /* */

@@ -8,29 +8,28 @@ const productController = {
 
         });
     },
-    products : function(req, res) {
-        listanames=[];
-        listaimages=[];
-        listacomments=[];
-        for (let index = 0; index < 5; index++) {
-            
-            let name = Data.comentarios[index].nombre;
-            listanames.push(name);
-            let image=Data.comentarios[index].imagen;
-            listaimages.push(image);
-            let comment=Data.comentarios[index].comentario;
-            listacomments.push(comment)
-        return res.render('product', {
-            names:listanames,
-            images:listaimages,
-            comments:listacomments
+    product : function(req, res) {
+     /* filtrar por primaryKey */
+     let id = req.params.id; //4
 
-        });
-    }
-
-
+     /* Crear relacion */
+     let rel = {
+       include: [{ association: "user1" }, { association: "comment2" }],
+     };
+ 
+     movie.findByPk(id, rel)
+       .then(function (result) {
+         console.log(result);
+         return res.render("product", {
+           productdata: result,
+         });
+       })
+       .catch(function (error) {
+         console.log(error);
+       })
 
     },
+    
     /* Para mostrar producto */ 
     showForm: (req, res) =>{
         return res.render("productAdd")
