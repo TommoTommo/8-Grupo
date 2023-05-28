@@ -38,6 +38,6 @@ const indexController = {
 
     }
 
-
-
+    console.log(product.findAll())
+    console.log("hola")
 module.exports = indexController;

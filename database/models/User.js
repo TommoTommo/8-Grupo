@@ -8,20 +8,20 @@ module.exports = function(sequelize, dataTypes) {
             primaryKey: true,
             type: dataTypes.INTEGER,
         },
-        name:{
+        nombre:{
             type: dataTypes.STRING,
         },
         email:{
-            type: dataTypes.DECIMAL,
+            type: dataTypes.STRING,
         },
-        password:{
-            type: dataTypes.INTEGER,
+        pass:{
+            type: dataTypes.STRING,
         },
-        profile:{
-            type: dataTypes.DATE,
+        foto:{
+            type: dataTypes.STRING,
         },
         date:{
-            type: dataTypes.INTEGER,
+            type: dataTypes.DATE,
         },
         dni:{
             type: dataTypes.INTEGER,

@@ -11,9 +11,15 @@ module.exports = function(sequelize, dataTypes) {
         nombre:{
             type: dataTypes.STRING,
         },
-        descripcion:{
-            type: dataTypes.DECIMAL,
-        }
+        imagen:{
+            type: dataTypes.STRING,
+        },
+        FkUserId:{
+
+            type: dataTypes.INTEGER,
+        },
+
+
     };
 
     //nombre varchar(255) 
@@ -55,3 +61,4 @@ module.exports = function(sequelize, dataTypes) {
 
     return product;
 }
+

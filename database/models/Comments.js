@@ -8,15 +8,21 @@ module.exports = function(sequelize, dataTypes) {
             primaryKey: true,
             type: dataTypes.INTEGER,
         },
-        comment:{
+        comentarios:{
             type: dataTypes.STRING,
+        },
+        FkUserId:{
+            type: dataTypes.INTEGER,
+        },   
+        FkProdId:{
+            type: dataTypes.INTEGER,
         }   
     };
     
 
     let config = {
         tableName: 'comentarios',
-        timestamps: false, //Si la tabla no tiene los campos created_at y updated_at
+        timestamps: true, //Si la tabla no tiene los campos created_at y updated_at
         underscored: true, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
     };
 
