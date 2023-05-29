@@ -1,7 +1,4 @@
 const db = require("../database/models")
-
-const { Sequelize } = require("sequelize");
-
 let product= db.Product
 let op = db.Sequelize.Op
 

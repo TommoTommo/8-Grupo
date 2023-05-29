@@ -3,7 +3,7 @@ var router = express.Router();
 const productController = require("../Controllers/productController") 
 
 /* GET users listing. */
-router.get('/', productController.products);
+router.get('/', productController.product);
 
 router.get('/add', productController.add);
 
@@ -14,7 +14,7 @@ router.get("/register", productController.showForm);
 router.post("/register", productController.store); /* grabacion crud 1:01:26
 
 /* */
-router.get('/id/:id', movieController.product);
+
 /* */
 
 /* */
