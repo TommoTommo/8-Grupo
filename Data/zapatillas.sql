@@ -38,7 +38,7 @@ CREATE TABLE comentarios(
     FOREIGN KEY (product_id) REFERENCES productos(id)
 );
 
-INSERT INTO usuarios (nombre, email, pass, foto) VALUES
+INSERT INTO usuarios (nombre, email, pass, imagen) VALUES
 ("Teresa", "tere@gmail.com", "1234", "default-image.png"),
 ("Thomas", "thomas@gmail.com", "1234", "default-image.png"),
 ("Agustin", "agus@outlook.com", "1234", "default-image.png"),
