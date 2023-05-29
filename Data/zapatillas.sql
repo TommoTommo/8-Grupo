@@ -91,4 +91,4 @@ INSERT INTO comentarios (comentarios, user_id, product_id) VALUES
 ("Era lo que esperaba",1,8),
 ("Sigo esperando una respuesta",2,8),
 ("Mala atención al cliente",3,8),
-("Excelente calidad y servicio",4,8);
+("Excelente calidad y servicio",4,8)
