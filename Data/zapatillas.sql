@@ -1,8 +1,3 @@
-
-CREATE DATABASE 'zapatillas'; 
-
-USE 'zapatillas'; 
-
 CREATE TABLE usuarios(
     id int(11) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     nombre varchar(255) NOT NULL, 
@@ -12,7 +7,7 @@ CREATE TABLE usuarios(
     update_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     create_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, 
     deleted_at timestamp NULL DEFAULT NULL
-)
+);
 
 
 CREATE TABLE productos(
@@ -32,7 +27,7 @@ CREATE TABLE productos(
 CREATE TABLE comentarios(
     id int(11) UNSIGNED PRIMARY KEY AUTO_INCREMENT, 
     comentarios varchar(255) NOT NULL, 
-    update_at timestamp NOT NULL DEFAULT CURRENT TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, 
+    update_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, 
     create_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     deleted_at timestamp NULL DEFAULT NULL, 
 
@@ -51,7 +46,7 @@ INSERT INTO usuarios (nombre, email, pass, foto) VALUES
 ("Paula", "paula@yahoo.com", "1234", "default-image.png");
 
 
---//nombre mal escrito --nomnbre
+
 INSERT INTO productos (nombre, descripcion, imagen, user_id) VALUES
 ("Nike Quest", "Zapatillas de running para hombre", "img-nike-quest.png", 1),
 ("Jordan Air", "Zapatillas de running para hombre", "img-jordan-air.png", 1),
@@ -63,7 +58,7 @@ INSERT INTO productos (nombre, descripcion, imagen, user_id) VALUES
 ("Reebok Mujer","Zapatillas de running para mujer","img-reebok-mujer.png",4);
 
 
---//cometario mal escrito-- 
+
 INSERT INTO comentarios (comentarios, user_id, product_id) VALUES
 ("Muy buena calidad",1,1),
 ("Muy buena calidad",2,1),
