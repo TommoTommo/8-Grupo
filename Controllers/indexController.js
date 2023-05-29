@@ -5,17 +5,16 @@ let op = db.Sequelize.Op
 const indexController = {
     index : function(req, res) {
 
-        product.findAll()
+        console.log("error");
+       /*  product.findAll()
         .then(()=>{
 
         })
         .catch(() => {
-            
-        })
 
-        return res.render('index', {
+        }) */
 
-        });
+        return res.render('index');
     },
 
     //buscador
