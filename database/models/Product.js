@@ -37,7 +37,7 @@ module.exports = function(sequelize, dataTypes) {
 //update_at timestamp 
 //created_at timestamp 
 //deleted_at timestamp 
-//FkUserId int(11) UN
+//FkUserId int(11) UN.
 //
 
     let config = {
