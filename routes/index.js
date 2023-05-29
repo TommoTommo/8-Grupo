@@ -6,6 +6,9 @@ const indexController = require("../Controllers/indexController");
 
 router.get("/", indexController.index)
 
+
+router.get("/search" , indexController.results)
+
 // router.get('/results', indexController.results);
 
 

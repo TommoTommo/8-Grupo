@@ -24,8 +24,8 @@ CREATE TABLE productos(
     created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, 
     deleted_at timestamp NULL DEFAULT NULL, 
 
-    FkUserId INT(11) UNSIGNED NOT NULL, 
-    FOREIGN KEY (FkUserId) REFERENCES usuarios(id)
+    user_id INT(11) UNSIGNED NOT NULL, 
+    FOREIGN KEY (user_id) REFERENCES usuarios(id)
 );
 
 
@@ -36,11 +36,11 @@ CREATE TABLE comentarios(
     create_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     deleted_at timestamp NULL DEFAULT NULL, 
 
-    FkUserId INT(11) UNSIGNED NOT NULL,
-    FOREIGN KEY (FkUserId) REFERENCES usuarios(id),
+    user_id INT(11) UNSIGNED NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES usuarios(id),
 
-    FkProdId INT(11) UNSIGNED NOT NULL,
-    FOREIGN KEY (FkpRODid) REFERENCES productos(id)
+    product_id INT(11) UNSIGNED NOT NULL,
+    FOREIGN KEY (product_id) REFERENCES productos(id)
 );
 
 INSERT INTO usuarios (nombre, email, pass, foto) VALUES
@@ -52,7 +52,7 @@ INSERT INTO usuarios (nombre, email, pass, foto) VALUES
 
 
 --//nombre mal escrito --nomnbre
-INSERT INTO productos (nombre, descripcion, imagen, FkUserId) VALUES
+INSERT INTO productos (nombre, descripcion, imagen, user_id) VALUES
 ("Nike Quest", "Zapatillas de running para hombre", "img-nike-quest.png", 1),
 ("Jordan Air", "Zapatillas de running para hombre", "img-jordan-air.png", 1),
 ("Adidas mujer forumlow", "Zapatillas de running para mujer", "img-adidas-forumlow.png", 2),
@@ -64,7 +64,7 @@ INSERT INTO productos (nombre, descripcion, imagen, FkUserId) VALUES
 
 
 --//cometario mal escrito-- 
-INSERT INTO comentarios (comentarios, FkUserId, FkProdId) VALUES
+INSERT INTO comentarios (comentarios, user_id, product_id) VALUES
 ("Muy buena calidad",1,1),
 ("Muy buena calidad",2,1),
 ("Buen producto",3,1),
