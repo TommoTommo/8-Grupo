@@ -10,7 +10,7 @@ const productController = {
     },
     product : function(req, res) {
      /* filtrar por primaryKey */
-     let id = req.params.id; //4
+     //let id = req.params.id; //4
 
      /* Crear relacion */
      let rel = {
