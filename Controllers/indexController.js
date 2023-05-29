@@ -1,5 +1,8 @@
 const db = require("../database/models")
-let product = db.Product
+
+const { Sequelize } = require("sequelize");
+
+let product= db.Product
 let op = db.Sequelize.Op
 
 const indexController = {
