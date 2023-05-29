@@ -41,6 +41,8 @@ app.use(function(req, res, next){
   return next();
 })
 
+// este cambio
+
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
 app.use('/products', productsRouter);
