@@ -29,6 +29,7 @@ const userController = {
           if (result != null) {
               let claveCorrecta = bcrypt.compareSync(pass, result.password)
               if (claveCorrecta) {
+                  //session 
                   return res.send("Existe el email y la password es correcta");
               } else {
                   return res.send("Existe el email, pero la password es incorrecta");
