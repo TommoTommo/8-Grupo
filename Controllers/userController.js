@@ -10,7 +10,7 @@ const userController = {
     profile : function(req, res) {
 
         //no se cual usar id1 o id2 , quiero acceder al id del usario en session.
-        let id1=res.locals.user.id
+      //no uso res porque es response
         let id2=req.session.user.id
         
 

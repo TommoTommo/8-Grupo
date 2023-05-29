@@ -1,14 +1,17 @@
 const db = require("../database/models")
-
-const { Sequelize } = require("sequelize");
-
-let product= db.Product
+let product = db.Product
 let op = db.Sequelize.Op
 
 const indexController = {
     index : function(req, res) {
 
-        
+        product.findAll()
+        .then(()=>{
+
+        })
+        .catch(() => {
+            
+        })
 
         return res.render('index', {
 
@@ -21,17 +24,17 @@ const indexController = {
   
         
 
-          //   product.findAll({
-          //     where: [
-          //       { name: { [op.like]: "%" + busqueda + "%" } },
-          //     ],
-          //   })
-          //   .then(function (result) {
-          //  return res.render("searchResults", { listaProducts: result });
-          //   })
-          //   .catch(function (error) {
-          //     console.log(error);
-          //   })
+           product.findAll({
+               where: [
+                 { name: { [op.like]: "%" + busqueda + "%" } },
+              ],
+           })
+           .then(function (result) {
+          return res.render("searchResults", { listaProducts: result });
+             })
+             .catch(function (error) {
+               console.log(error);
+            })
            } 
 
 
