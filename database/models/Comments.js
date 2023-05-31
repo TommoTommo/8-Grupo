@@ -36,7 +36,7 @@ module.exports = function(sequelize, dataTypes) {
 
 //Hago dos aosociasiones una con users y la otra con products
 
-comment.associate = function(models) {
+/* comment.associate = function(models) {
     comment.belongsTo(models.User, {
         as: "user2",
         foreignKey: "FkUserId"
@@ -45,6 +45,6 @@ comment.associate = function(models) {
         as: "product2",
         foreignKey: "FkProdId"
     })
-};
+}; */
     return comment;
 };

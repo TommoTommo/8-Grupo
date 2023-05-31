@@ -38,7 +38,7 @@ module.exports = function(sequelize, dataTypes) {
 //relaciones
 
 //relacion producto y usario A
-    user.associate = function(models) {
+   /*  user.associate = function(models) {
         user.hasMany(models.Product, {
             as: "product",
             foreignKey: "FkUserId"
@@ -51,6 +51,6 @@ module.exports = function(sequelize, dataTypes) {
         })
 
 
-   };
+   }; */
     return user;
 };
