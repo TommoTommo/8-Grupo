@@ -17,15 +17,15 @@ module.exports = function(sequelize, dataTypes) {
         pass:{
             type: dataTypes.STRING,
         },
-        foto:{
+        imagen:{
             type: dataTypes.STRING,
         },
-        date:{
+        update_at:{
             type: dataTypes.DATE,
         },
-        dni:{
-            type: dataTypes.INTEGER,
-        }
+        create_at:{
+            type: dataTypes.DATE,
+        },
     };
 
     let config = {
