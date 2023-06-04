@@ -1,5 +1,8 @@
 claveCorrecta= false
-const Data = require("../Data/data")
+const db = require("../database/models")
+
+let user = db.User
+let op = db.Sequelize.Op
 /* let op = data.sequelize.op; */
 
 const userController = {
@@ -44,32 +47,38 @@ const userController = {
   }, 
 
     profile : function(req, res) {
+            //SACO EL ! DEL != undefined PORQUE TODAVIA NO SE PEDUE INICIAR SECION
+            // if (req.session.user = undefined) {
 
-        //no se cual usar id1 o id2 , quiero acceder al id del usario en session.
-      //no uso res porque es response
-        let id2=req.session.user.id
-        
-
-        /* Crear relacion */
-        let rel = {
-          include: [{ association: "product" }, { association: "comment1" }],
-        };
-
-    
-        User.findByPk(id, rel)
-          .then(function (result) {
+              //let id=req.session.user.id
+              let id2= 1
             
-            return res.render("profile", {
-              userdata: result,
-            });
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-       
- 
-
-    }
+    
+              /* Crear relacion */
+              let rel = {
+                include: [{ association: "product" }],
+              };
+      
+              
+              user.findByPk(id2, rel)
+              
+                .then(function (result) {
+                  console.log(result);
+                  return res.render("profile", {
+                    userdata: result,
+                  });
+                })
+                .catch(function (error) {
+                  console.log(error);
+                });
+            // }else{
+            //   return res.redirect("/users/login");
+            // }
+    
+           
+     
+    
+        }
     
     ,
     profileedit : function(req, res) {
