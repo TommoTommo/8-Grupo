@@ -1,3 +1,4 @@
+//hola
 claveCorrecta= false
 const Data = require("../Data/data")
 /* let op = data.sequelize.op; */
