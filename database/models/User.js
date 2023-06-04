@@ -23,13 +23,13 @@ module.exports = function(sequelize, dataTypes) {
         update_at:{
             type: dataTypes.DATE,
         },
-        create_at:{
+        created_at:{
             type: dataTypes.DATE,
         },
     };
 
     let config = {
-        tableName: 'usarios',
+        tableName: 'usuarios',
         timestamps: false, //Si la tabla no tiene los campos created_at y updated_at
         underscored: true, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
     };
@@ -38,19 +38,19 @@ module.exports = function(sequelize, dataTypes) {
 //relaciones
 
 //relacion producto y usario A
-   /*  user.associate = function(models) {
+    user.associate = function(models) {
         user.hasMany(models.Product, {
             as: "product",
-            foreignKey: "FkUserId"
+            foreignKey: "user_id"
         }),
         //otra relacion
 
         user.hasMany(models.Comment, {
             as: "comment1",
-            foreignKey: "FkUserId"
+            foreignKey: "user_id"
         })
 
 
-   }; */
+   }; 
     return user;
 };

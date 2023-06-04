@@ -17,32 +17,25 @@ module.exports = function(sequelize, dataTypes) {
         imagen:{
             type: dataTypes.STRING,
         },
+        update_at:{
+            type: dataTypes.DATE,
+        },
+        created_at:{
+            type: dataTypes.DATE,
+        },
         user_id:{
 
             type: dataTypes.INTEGER,
-        }, 
-        create_at:{
-            type: dataTypes.DATE,
-        },
-        update_at:{
-            type: dataTypes.DATE,
         }
 
 
     };
 
-    //nombre varchar(255) 
-//descripcion varchar(255) 
-//imagen varchar(255) 
-//update_at timestamp 
-//created_at timestamp 
-//deleted_at timestamp 
-//FkUserId int(11) UN.
-//
+
 
     let config = {
         tableName: 'productos',
-        timestamps: true, //Si la tabla no tiene los campos created_at y updated_at
+        timestamps: false, //Si la tabla no tiene los campos created_at y updated_at
         underscored: true, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
     };
 
@@ -51,20 +44,20 @@ module.exports = function(sequelize, dataTypes) {
       /* Crear relaciones */
 
         //relacion producto y usario A
- /*        product.associate = function(models) {
+        product.associate = function(models) {
         product.belongsTo(models.User, {
             as: "user1",
-            foreignKey: "FkUserId"
+            foreignKey: "user_id"
         }),
 
 
        
         product.hasMany(models.Comment, {
                 as: "comment2",
-                foreignKey: "FkProdId"
+                foreignKey: "product_id"
         })
 
-   }; */
+   };
 
     return product;
 }

@@ -11,18 +11,20 @@ module.exports = function(sequelize, dataTypes) {
         comentarios:{
             type: dataTypes.STRING,
         },
+        update_at:{
+            type: dataTypes.DATE,
+        },
+        created_at:{
+            type: dataTypes.DATE,
+        },   
         user_id:{
             type: dataTypes.INTEGER,
         },   
         product_id:{
             type: dataTypes.INTEGER,
-        },
-        create_at:{
-            type: dataTypes.DATE,
-        },
-        update_at:{
-            type: dataTypes.DATE,
-        }   
+        }
+
+
     };
     
 
@@ -35,16 +37,15 @@ module.exports = function(sequelize, dataTypes) {
     const comment = sequelize.define(alias, cols, config);
 
 //Hago dos aosociasiones una con users y la otra con products
-
-/* comment.associate = function(models) {
+ comment.associate = function(models) {
     comment.belongsTo(models.User, {
         as: "user2",
-        foreignKey: "FkUserId"
+        foreignKey: "user_id"
     })
     comment.belongsTo(models.Product, {
         as: "product2",
-        foreignKey: "FkProdId"
+        foreignKey: "product_id"
     })
-}; */
+}; 
     return comment;
 };
