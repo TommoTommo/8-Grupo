@@ -1,4 +1,3 @@
-//hola
 claveCorrecta= false
 const Data = require("../Data/data")
 /* let op = data.sequelize.op; */
@@ -18,31 +17,39 @@ const userController = {
       return res.render('login')
   },
   loginPost: function(req, res) {
-      let emailBuscado = req.body.email;
-      let pass = req.body.password;
-
-      let filtrado = {
-          where: [{email: emailBuscado}]
-      };
-      user.findOne(filtrado)
-      .then((result) => {
-
-          if (result != null) {
-              let claveCorrecta = bcrypt.compareSync(pass, result.password)
-              if (claveCorrecta) {
-                  //session 
-                  return res.send("Existe el email y la password es correcta");
-              } else {
-                  return res.send("Existe el email, pero la password es incorrecta");
+    if (req.body.email !== "" && req.body.password !== "") {
+      if (!res.locals.user) {
+          Usuarios.findOne({
+              where: {
+                  email: req.body.email
               }
-          } else {
-              return res.send("No existe el email ingresado")
-          }
-          
-      }).catch((err) => {
-          console.log(err);
-      });
-  }, 
+          })
+              .then(function (usuario) {
+                  if (usuario) {
+                      if (bycript.compareSync(req.body.password, usuario.password)) {
+                          req.session.user = usuario.dataValues;
+                          if (req.body.recordame === "true") {
+                              res.cookie('recordame', usuario.email, { maxAge: 1000 * 60 * 60 * 24 * 7 })
+                          }
+                          return res.redirect('/')
+                      } else {
+                          return res.render('login', { errors: { password: { msg: 'Contraseña incorrecta' } } })
+                      }
+                  } else {
+                      return res.render('login', { errors: { email: { msg: 'No se encuentra registrado' } } })
+                  }
+              })
+              .catch(function (error) {
+                  console.log(error)
+              })
+      } else {
+          return res.redirect('/')
+      }
+  } else {
+      return res.render('login', { errors: { email: { msg: 'El campo emial debe estar completo' } } })
+  }
+
+},
 
     profile : function(req, res) {
 
