@@ -35,7 +35,7 @@ const userController = {
                   return res.send("Existe el email, pero la password es incorrecta");
               }
           } else {
-              return res.send("No Existe el email ingresado")
+              return res.send("No existe el email ingresado")
           }
           
       }).catch((err) => {
