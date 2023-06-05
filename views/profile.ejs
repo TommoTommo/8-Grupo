@@ -1,32 +1,27 @@
-<% include('./partials/head') %>
+<%- include('./partials/head') -%>
 
 <body>
- <% if (locals.user != null){%>
-	<% include('./partials/headerLogueado')  %>
- <%} %>
- <% else {%>
-	<%- include('./partials/header') %>
-	<%}%>
+
+    <% if (locals.user != null) { %>
+        <%- include('./partials/headerLogueado') -%>
+    <% } else { %>
+        <%- include('./partials/header') -%>
+    <% } %>
 	<!-- Datos del usuario -->
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
-			<div class="img-container offset-3 col-2">
-				<img src="https://via.placeholder.com/150" alt="foto de perfil" class="foto-perfil">
-			</div>
+			
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					
-					<h1 class="main-title"> Nombre Usario:<%  userdata.nombre%>
+					<h1 class="main-title"> Nombre Usuario:<%=userdata.nombre%>
 						<a href="profile-edit.html">
 							<i class="fas fa-cog"></i>
 						</a>
-					</h1>
-					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 				</div>
 				<div>
 					<ul class="">
-						<li>Foto: <% userdata.foto %></li>
-						<li>Mail: <% userdata.email %></li>
+						<li>Foto: <%=userdata.imagen %></li>
+						<li>Mail: <%=userdata.email %></li>
 						<ol>
 							<!-- Lista de productos -->
 							<% for( let i = 0; i < userdata.product.length; i++ ) { %>
@@ -42,7 +37,6 @@
 		</div>
 	</section>
 	<!-- /Datos del usuario -->
-
 	<!-- Mis productos -->
 	<div class="container products-wrapper">
 		<div class="row">
