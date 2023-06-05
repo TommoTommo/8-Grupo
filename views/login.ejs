@@ -1,10 +1,10 @@
-<%- include('./partials/head') %>
+<%- include('./partials/head') -%>
 
 <body>
  <% if (locals.user != null){%>
-	<%- include('./partials/headerLogueado')  %>
+	<%- include('./partials/headerLogueado')  -%>
  <%} else {%>
-	<%- include('./partials/header') %>
+	<%- include('./partials/header') -%>
 <%}%>
 
 
@@ -25,6 +25,9 @@
 
                 <label for="contraseña">Contraseña:</label>
                 <input type="password" id="password" name="password" required><br><br>
+
+				<label for="Recordame">Remember me </label>
+				<input type="checkbox" name="Remember me" id="Remember me" required><br><br>
 
                 <input type="submit" value="login">
             </form>
