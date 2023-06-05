@@ -1,4 +1,4 @@
-const { request } = require('express');
+
 var express = require('express');
 var router = express.Router();
 
@@ -13,7 +13,9 @@ router.get('/profile', userController.profile);
 router.get('/edit', userController.profileedit);
 
 router.get('/login', userController.formLogin);
+router.post('/login', userController.loginPost); 
 
 router.get('/register', userController.formRegister);
+router.post('/register', userController.registerPost); 
 
 module.exports = router;

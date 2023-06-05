@@ -6,50 +6,56 @@ const userController = {
     
     formRegister : function(req, res) {
         return res.render('register', {
-
+            
         });
     },
     registerPost: (req, res) => {
-
+      const info = req.body
+      return res.redirect('/')
     },
 
     formLogin: function(req, res) {
-      return res.render('login')
-  },
-  loginPost: function(req, res) {
-    if (req.body.email !== "" && req.body.password !== "") {
-      if (!res.locals.user) {
-          Usuarios.findOne({
-              where: {
-                  email: req.body.email
-              }
-          })
-              .then(function (usuario) {
-                  if (usuario) {
-                      if (bycript.compareSync(req.body.password, usuario.password)) {
-                          req.session.user = usuario.dataValues;
-                          if (req.body.recordame === "true") {
-                              res.cookie('recordame', usuario.email, { maxAge: 1000 * 60 * 60 * 24 * 7 })
-                          }
-                          return res.redirect('/')
-                      } else {
-                          return res.render('login', { errors: { password: { msg: 'Contraseña incorrecta' } } })
-                      }
-                  } else {
-                      return res.render('login', { errors: { email: { msg: 'No se encuentra registrado' } } })
-                  }
-              })
-              .catch(function (error) {
-                  console.log(error)
-              })
-      } else {
-          return res.redirect('/')
-      }
-  } else {
-      return res.render('login', { errors: { email: { msg: 'El campo emial debe estar completo' } } })
-  }
-
+      if (req.session.user != undefined) {
+        return res.redirect('/movies/all');
+    } else {
+        return res.render('login');
+    }
 },
+  loginPost: function(req, res) {
+    let emailBuscado = req.body.email;
+
+        let pass = req.body.password;
+
+        let filtrado = {
+            where: [{email: emailBuscado}]
+        };
+        user.findOne(filtrado)
+        .then((result) => {
+
+            if (result != null) {
+                let claveCorrecta = bcrypt.compareSync(pass, result.password)
+                if (claveCorrecta) {
+                    /* poner en session */
+                    
+                    req.session.user = result.dataValues;
+
+                    if (req.body.rememberme != undefined) {
+                        res.cookie('userId', result.id, {maxAge: 1000 * 60 * 15});
+                    }
+                   
+                     return res.redirect('/movies/all');
+                } else {
+                    return res.send("Existe el mail y pero la password es incorrecta");
+                }
+            } else {
+                return res.send("Noooo Existe el mail")
+            }
+            
+        }).catch((err) => {
+            console.log(err);
+        });
+       
+    },
 
     profile : function(req, res) {
 
@@ -74,12 +80,9 @@ const userController = {
           .catch(function (error) {
             console.log(error);
           });
-       
- 
+      
+    },
 
-    }
-    
-    ,
     profileedit : function(req, res) {
         return res.render('profileEdit', {
 

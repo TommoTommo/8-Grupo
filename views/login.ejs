@@ -17,17 +17,17 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			</h2>
-			<form action="/home" method="GET" class="login">
+			<form action="/user/login" method="POST" class="login">
                
 
-                <label for="usuario">Usuario:</label>
-                <input type="text" id="usuario" name="usuario" required><br><br>
+                <label for="usuario">Email:</label>
+                <input type="text" id="usuario" name="email" required><br><br>
 
                 <label for="contraseña">Contraseña:</label>
                 <input type="password" id="password" name="password" required><br><br>
 
 				<label for="Recordame">Remember me </label>
-				<input type="checkbox" name="Remember me" id="Remember me" required><br><br>
+				<input type="checkbox" name="rememberme" id="rememberme" ><br><br>
 
                 <input type="submit" value="login">
             </form>
