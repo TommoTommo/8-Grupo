@@ -7,6 +7,21 @@ let product= db.Product
 let op = db.Sequelize.Op
 
 const indexController = {
+
+    findAll: (req, res) => {
+     
+        product.findAll()
+        .then(function (result) {
+          return res.render("Productos", { listaProductos: result });   
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+        
+      },
+    
+
+    
     index : function(req, res) {
 
         console.log("error");
@@ -40,6 +55,7 @@ const indexController = {
             })
            } 
 
+         
 
 
     }
