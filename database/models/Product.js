@@ -34,7 +34,7 @@ module.exports = function(sequelize, dataTypes) {
     //nombre varchar(255) 
 //descripcion varchar(255) 
 //imagen varchar(255) 
-//update_at timestamp 
+//updated_at timestamp 
 //created_at timestamp 
 //deleted_at timestamp 
 //FkUserId int(11) UN.
