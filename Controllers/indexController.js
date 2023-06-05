@@ -8,11 +8,11 @@ let op = db.Sequelize.Op
 
 const indexController = {
 
-    findAll: (req, res) => {
+    index: (req, res) => {
      
         product.findAll()
         .then(function (result) {
-          return res.render("Productos", { listaProductos: result });   
+          return res.render("index", { listaProductos: result });   
         })
         .catch(function (error) {
           console.log(error);
@@ -22,7 +22,7 @@ const indexController = {
     
 
     
-    index : function(req, res) {
+    find : function(req, res) {
 
         console.log("error");
        /*  product.findAll()
