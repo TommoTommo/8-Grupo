@@ -2,6 +2,13 @@ const Data = require("../Data/data")
 
 
 const productController = {
+    detalle : function(req, res) {
+
+
+      
+    },
+
+
     add : function(req, res) {
         return res.render('productAdd', {
 
