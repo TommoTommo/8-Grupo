@@ -20,10 +20,10 @@ module.exports = function(sequelize, dataTypes) {
         imagen:{
             type: dataTypes.STRING,
         },
-        update_at:{
+        updated_at:{
             type: dataTypes.DATE,
         },
-        create_at:{
+        created_at:{
             type: dataTypes.DATE,
         },
     };
