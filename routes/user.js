@@ -10,8 +10,8 @@ const userController = require("../Controllers/userController")
 
 router.get('/profile', userController.profile);
 
-router.get('/profile/edit', userController.profileedit);
-;
-router.get('/profile/login', userController.formLogin);
+router.get('/edit', userController.profileedit);
+
+router.get('/login', userController.formLogin);
 
 module.exports = router;
