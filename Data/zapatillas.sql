@@ -54,7 +54,7 @@ INSERT INTO usuarios (nombre, email, pass, imagen) VALUES
 INSERT INTO productos (nombre, descripcion, imagen, user_id) VALUES
 ("Nike Quest", "Zapatillas de running para hombre", "img-nike-quest.png", 1),
 ("Jordan Air", "Zapatillas de running para hombre", "img-jordan-air.png", 1),
-("Adidas mujer forumlow", "Zapatillas de running para mujer", "img-adidas-forumlow.png", 2),
+("Adidas mujer forumlow", "Zapatillas de running para mujer", "img-adidas-mujer-forumlow.png", 2),
 ("Adidas runfalcom", "Zapatillas de running para hombre", "img-adidas-runfalcon.png", 3),
 ("Adidas running","Zapatillas de running para hombre","img-adidas-running.png",3),
 ("Jordan Chicago","Zapatillas de running para hombre","img-jordan-chicago.png",4),
