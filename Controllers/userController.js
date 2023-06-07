@@ -31,6 +31,7 @@ const userController = {
             console.log(error);
         });
     
+    
     },
 
     formLogin: function(req, res) {
