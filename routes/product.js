@@ -10,18 +10,12 @@ router.get('/', productController.product);
 
 router.get('/add', productController.add);
 
-
-
 /* Mostrar producto */
 router.get("/register", productController.showForm);
 
 /* Guardar producto */
-router.post("/register", productController.store); /* grabacion crud 1:01:26
+router.post("/register", productController.store); 
 
-/* */
 router.get("/register", productController.showForm);
-/* */
-
-/* */
 
 module.exports = router;

@@ -46,7 +46,7 @@ const indexController = {
 
            product.findAll({
                where: [
-                 { name: { [op.like]: "%" + busqueda + "%" } },
+                 { nombre: { [op.like]: "%" + busqueda + "%" } },
               ],
            })
            .then(function (result) {

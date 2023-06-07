@@ -1,46 +1,14 @@
-//HOLAAAAAAAAAAAAAAAAA
+var express = require('express');
+var router = express.Router();
+const indexController = require("../Controllers/indexController"); 
+/* GET home page. */
+
+router.get("/", indexController.index)
 
 
-const db = require("../database/models")
+router.get("/search" , indexController.results)
 
-let product = db.Product
-let op = db.Sequelize.Op
-
-const indexController = {
-    index: function (req, res) {
-
-        console.log("error");
-        /*  product.findAll()
-         .then(()=>{
- 
-         })
-         .catch(() => {
- 
-         }) */
-
-        return res.render('index');
-    },
-
-    //buscador
-    results: function (req, res) {
-        let busqueda = req.query.search
-        product.findAll({
-            where: [
-                { nombre: { [op.like]: "%" + busqueda + "%" } }
-            ],
-        })
-            .then(function (result) {
-                console.log(result);
-                return res.render("searchResults", { listaProducts: result });
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-    }
+// router.get('/results', indexController.results);
 
 
-
-}
-
-
-module.exports = indexController;
+module.exports = router;

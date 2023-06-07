@@ -18,7 +18,6 @@ module.exports = function(sequelize, dataTypes) {
             type: dataTypes.STRING,
         },
         user_id:{
-
             type: dataTypes.INTEGER,
         }, 
         created_at:{
