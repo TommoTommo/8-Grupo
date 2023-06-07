@@ -13,7 +13,24 @@ const userController = {
         });
     },
     registerPost: (req, res) => {
+        let info = req.body;
 
+        let userStore = {
+            name: info.name,
+            email: info.email,
+            password: bcrypt.hashSync(info.password, 10),
+            remember_token: ""
+        }
+
+  
+        user.create(userStore)
+        .then(function(result) {
+            return res.redirect('/users/login');
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    
     },
 
     formLogin: function(req, res) {
