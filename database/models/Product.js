@@ -45,26 +45,42 @@ module.exports = function(sequelize, dataTypes) {
         underscored: true, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
     };
 
-    const product = sequelize.define(alias, cols, config);
+   let Product = sequelize.define(alias, cols, config);
 
       /* Crear relaciones */
 
         //relacion producto y usario A
- /*        product.associate = function(models) {
-        product.belongsTo(models.User, {
-            as: "user1",
-            foreignKey: "FkUserId"
-        }),
+
+
+//          product.associate = function(models) {
+//         product.belongsTo(models.User, {
+//             as: "user1",
+//             foreignKey: "FkUserId"
+//         }),
 
 
        
-        product.hasMany(models.Comment, {
-                as: "comment2",
-                foreignKey: "FkProdId"
-        })
+//         product.hasMany(models.Comment, {
+//                 as: "comment2",
+//                 foreignKey: "FkProdId"
+//         })
 
-   }; */
+//    }; 
+Product.associate = (models) => {
+    Product.belongsTo(models.User, {
+      foreignKey: 'user_id',
+      as: 'user1',
+    });
+}
 
-    return product;
+    Product.associate = (models) => {
+        Product.hasMany(models.Comment, {
+          foreignKey: 'product_id',
+          as: 'comment2',
+        });
+      };
+  
+
+    return Product;
 }
 
