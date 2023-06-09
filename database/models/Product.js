@@ -47,36 +47,15 @@ module.exports = function(sequelize, dataTypes) {
 
    let Product = sequelize.define(alias, cols, config);
 
-      /* Crear relaciones */
-
-        //relacion producto y usario A
-
-
-//          product.associate = function(models) {
-//         product.belongsTo(models.User, {
-//             as: "user1",
-//             foreignKey: "FkUserId"
-//         }),
-
-
-       
-//         product.hasMany(models.Comment, {
-//                 as: "comment2",
-//                 foreignKey: "FkProdId"
-//         })
-
-//    }; 
-Product.associate = (models) => {
+Product.associate = function(models) {
     Product.belongsTo(models.User, {
-      foreignKey: 'user_id',
-      as: 'user1',
+        as: 'user1',
+        foreignKey: 'user_id',
     });
-}
-
-    Product.associate = (models) => {
-        Product.hasMany(models.Comment, {
-          foreignKey: 'product_id',
-          as: 'comment2',
+    Product.hasMany(models.Comment, {
+        as: 'comment2',
+        foreignKey: 'product_id',
+          
         });
       };
   
