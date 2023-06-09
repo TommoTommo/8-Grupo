@@ -54,11 +54,27 @@ const productController = {
     
     /* Para mostrar producto */ 
     showForm: (req, res) =>{
-        return res.render("/productAdd")
+      return res.render("productAdd");
+      // NO BORRAR PORFAVOR
+      // if (req.session.user != undefined) {
+      //   return res.render("productAdd");
+      // }else{
+      //   return res.redirect("/users/login");
+      // }
+
+
     },
     store: (req, res) =>{
-        return res.redirect("/index")
-    }
+      let info = req.body;
+      product
+        .create(info)
+        .then((result) => {
+          return res.redirect("index");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
 };
 
 module.exports = productController;
