@@ -69,7 +69,7 @@ const productController = {
       product
         .create(info)
         .then((result) => {
-          return res.redirect("index");
+          return res.redirect("/");
         })
         .catch((error) => {
           console.log(error);
