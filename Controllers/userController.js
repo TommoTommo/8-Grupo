@@ -104,6 +104,14 @@ const userController = {
 
         });
     },
+
+    logout: (req, res) => {
+        /* Destruir la session */
+        req.session.destroy();
+        /* Destruir la cookie */
+        res.clearCookie('recordame')
+        return res.redirect('/')
+    },
 //     profilelogin: function(req, res) {
 //         return res.render('login', {
 
