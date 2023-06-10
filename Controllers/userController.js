@@ -7,11 +7,13 @@ let op = db.Sequelize.Op
 
 const userController = {
     
+    //uso del CRUD create
     formRegister : function(req, res) {
         return res.render('register', {
 
         });
     },
+    //store
     registerPost: (req, res) => {
         let info = req.body;
 
@@ -25,7 +27,16 @@ const userController = {
   
         user.create(userStore)
         .then(function(result) {
-            return res.redirect('/users/login');
+            let errors = {}; 
+
+            if (req.body.user == "") {
+                errors.message = "El campo 'nombre' esta vacío";
+                res.locals.errors = errors; //me permite llevar la información a las vistas 
+                return res.render('register'); 
+            
+            } 
+
+            
         })
         .catch(function(error) {
             console.log(error);
@@ -112,6 +123,17 @@ const userController = {
         res.clearCookie('recordame')
         return res.redirect('/')
     },
+
+}
+
+
+
+module.exports = userController;
+
+
+
+
+
 //     profilelogin: function(req, res) {
 //         return res.render('login', {
 
@@ -128,8 +150,3 @@ const userController = {
 
 //         });
 //     }
-}
-
-
-
-module.exports = userController;
