@@ -1,5 +1,6 @@
 claveCorrecta= false
 const db = require("../database/models")
+const User = require("../database/models/User")
 
 let user = db.User
 let op = db.Sequelize.Op
@@ -37,14 +38,29 @@ const userController = {
             } else {
                 let usuarioNuevo = req.body; 
 
+                //Me dice que bycript no esta definido 
                 let user = {
                     username: usuarioNuevo.usuario, 
                     email: usuarioNuevo.email, 
-                    pass: usuarioNuevo.pass,
+                    pass: bycript.hashSync(usuarioNuevo.pass, 10),
                     imagen: usuarioNuevo.imagen, 
 
                 }
             }
+
+            User.findOne({
+                where: {
+                    email: user.email
+                }
+            })
+            .then((result) => {
+                if (result) {
+                    error.message = "El email ya está registrado, ingrese uno nuevo"; 
+                    res.locals.errors = errors; 
+                    return res.render('register'); 
+                    
+                }
+            })
 
             
         })
