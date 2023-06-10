@@ -34,7 +34,17 @@ const userController = {
                 res.locals.errors = errors; //me permite llevar la información a las vistas 
                 return res.render('register'); 
             
-            } 
+            } else {
+                let usuarioNuevo = req.body; 
+
+                let user = {
+                    username: usuarioNuevo.usuario, 
+                    email: usuarioNuevo.email, 
+                    pass: usuarioNuevo.pass,
+                    imagen: usuarioNuevo.imagen, 
+
+                }
+            }
 
             
         })
