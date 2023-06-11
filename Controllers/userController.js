@@ -21,7 +21,7 @@ const userController = {
         let userStore = {
             name: info.name,
             email: info.email,
-            password: bcrypt.hashSync(info.password, 10),
+            pass: bcrypt.hashSync(info.pass, 10),
             remember_token: ""
         }
 
@@ -59,6 +59,15 @@ const userController = {
                     res.locals.errors = errors; 
                     return res.render('register'); 
                     
+                } else {
+                    User.create(user)
+
+                    .then((result) => {
+                        res.redirect('/user/login')
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                    })
                 }
             })
 
