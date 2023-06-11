@@ -1,6 +1,7 @@
 claveCorrecta= false
 const db = require("../database/models")
 const User = require("../database/models/User")
+//const bcrypt = require('bycriptjs')
 
 let user = db.User
 let op = db.Sequelize.Op
@@ -9,13 +10,13 @@ let op = db.Sequelize.Op
 const userController = {
     
     //uso del CRUD create
-    formRegister : function(req, res) {
+    /* formRegister : function(req, res) {
         return res.render('register', {
 
         });
-    },
+    }, */
     //store
-    registerPost: (req, res) => {
+    /*registerPost: (req, res) => {
         let info = req.body;
 
         let userStore = {
@@ -78,7 +79,7 @@ const userController = {
         });
     
     
-    },
+    }, */
 
     formLogin: function(req, res) {
       return res.render('login')
