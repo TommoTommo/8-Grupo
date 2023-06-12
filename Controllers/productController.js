@@ -8,11 +8,11 @@ const productController = {//post
     detalle : function(req, res) {
       let id = req.params.id;
       let rel = {
-        include: [{ association: "user1" }, { association: "comment2" }],
+        include: [{ association: "user1" }, { association: "comment2", include: [{  association: "user2"  }]}],
       };
       product.findByPk(id, rel)
         .then(function (result) {
-          console.log(result);
+    
           return res.render("product", {
             product: result,
           });
