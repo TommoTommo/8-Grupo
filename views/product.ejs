@@ -19,7 +19,7 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="/images/products/<%= product.imagen %>" alt="" class="product-detail-img">
+					<img src="<%= product.imagen %>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
 						Descripción:<%=  product.descripcion %></p>
 				</article>
@@ -35,23 +35,23 @@
 								<p class="user">
 								<a href="profile.html"></a> 
 								
-								<% for( let i = 0; i < product.comment2.length; i++ ) { %>
-									<strong>Nombre usuario:<%= product.user1.nombre %> Comentario: <%= product.comment2.comentarios %> </strong>
-									<% } %>
 							
+									<strong>Dueño:<%= product.user1.nombre %>  </strong>
+						
 							</p>
 							</div>
 						</article>
-						<!-- PORQUE HAY 2 FORS '?' -->
+						
 						
 						<% for( let i = 0; i < product.comment2.length; i++ ) { %>
 						
 							<div class="data">
 								<p class="user">
-									<img src="/images/products/<%= product.imagen %>" alt="" class="product-detail-img">
-									<strong> <a href="profile.html">Nombre u suario: <%= product.user1.nombre %></a> </strong>
+									<img src="<%= product.comment2[i].user2.imagen%>" alt="" class="product-detail-img">
+									
+									<strong>Usuario: <%= product.comment2[i].user2.nombre %> </strong>
 									<strong>Comentario: <%= product.comment2[i].comentarios %> </strong>
-									<strong>Comentario: <%= product.comment2[i].product_id %> </strong>
+									
 
 							</div>
 

@@ -10,9 +10,10 @@ const productController = {//post
       let rel = {
         include: [{ association: "user1" }, { association: "comment2", include: [{  association: "user2"  }]}],
       };
+      
       product.findByPk(id, rel)
         .then(function (result) {
-    
+          
           return res.render("product", {
             product: result,
           });
@@ -86,23 +87,6 @@ const productController = {//post
 
       
   },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     add : function(req, res) {
         return res.render('productAdd', {
 
