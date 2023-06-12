@@ -5,7 +5,7 @@ USE zapatillas;
 CREATE TABLE usuarios(
     id int(11) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     nombre varchar(255) NOT NULL, 
-    email varchar(255) NOT NULL,
+    email varchar(255) UNIQUE NOT NULL,
     pass varchar(255) NOT NULL, 
     imagen varchar(255) NOT NULL, 
     updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -49,14 +49,14 @@ INSERT INTO usuarios (nombre, email, pass, imagen) VALUES
 
 
 INSERT INTO productos (nombre, descripcion, imagen, user_id) VALUES
-("Nike Quest", "Zapatillas de running para hombre", "img-nike-quest.png", 1),
-("Jordan Air", "Zapatillas de running para hombre", "img-jordan-air.png", 1),
-("Adidas mujer forumlow", "Zapatillas de running para mujer", "img-adidas-mujer-forumlow.png", 2),
-("Adidas runfalcom", "Zapatillas de running para hombre", "img-adidas-runfalcon.png", 3),
-("Adidas running","Zapatillas de running para hombre","img-adidas-running.png",3),
-("Jordan Chicago","Zapatillas de running para hombre","img-jordan-chicago.png",4),
-("Nike Revolution","Zapatillas de running para hombre","img-nike-revolution.png",4),
-("Reebok Mujer","Zapatillas de running para mujer","img-reebok-mujer.png",4);
+("Nike Quest", "Zapatillas de running para hombre", "/images/products/img-nike-quest.png", 1),
+("Jordan Air", "Zapatillas de running para hombre", "/images/products/img-jordan-air.png", 1),
+("Adidas mujer forumlow", "Zapatillas de running para mujer", "/images/products/img-adidas-mujer-forumlow.png", 2),
+("Adidas runfalcom", "Zapatillas de running para hombre", "/images/products/img-adidas-runfalcon.png", 3),
+("Adidas running","Zapatillas de running para hombre","/images/products/img-adidas-running.png",3),
+("Jordan Chicago","Zapatillas de running para hombre","/images/products/img-jordan-chicago.png",4),
+("Nike Revolution","Zapatillas de running para hombre","/images/products/img-nike-revolution.png",4),
+("Reebok Mujer","Zapatillas de running para mujer","/images/products/img-reebok-mujer.png",4);
 
 
 
