@@ -1,7 +1,7 @@
 claveCorrecta= false
 const db = require("../database/models")
 const User = require("../database/models/User")
-//const bcrypt = require('bycriptjs')
+const bcrypt = require('bcryptjs')
 
 let user = db.User
 let op = db.Sequelize.Op
@@ -10,67 +10,38 @@ let op = db.Sequelize.Op
 const userController = {
     
     //uso del CRUD create
-    /* formRegister : function(req, res) {
+     formRegister : function(req, res) {
         return res.render('register', {
 
         });
-    }, */
+    }, 
     //store
-    /*registerPost: (req, res) => {
+    registerPost: (req, res) => {
         let info = req.body;
 
-        let userStore = {
-            name: info.name,
-            email: info.email,
-            pass: bcrypt.hashSync(info.pass, 10),
-            remember_token: ""
+        if (req.body.user == "") {
+            errors.message = "El campo 'nombre' esta vacío";
+            res.locals.errors = errors; //me permite llevar la información a las vistas 
+            return res.render('register'); 
+        
         }
 
+        let userStore = {
+            nombre: info.usuario,
+            email: info.email,
+            pass: bcrypt.hashSync(info.password, 10),
+            imagen: info.imagen,
+        }
+
+        console.log(userStore);
   
         user.create(userStore)
         .then(function(result) {
             let errors = {}; 
 
-            if (req.body.user == "") {
-                errors.message = "El campo 'nombre' esta vacío";
-                res.locals.errors = errors; //me permite llevar la información a las vistas 
-                return res.render('register'); 
             
-            } else {
-                let usuarioNuevo = req.body; 
 
-                //Me dice que bycript no esta definido 
-                let user = {
-                    username: usuarioNuevo.usuario, 
-                    email: usuarioNuevo.email, 
-                    pass: bycript.hashSync(usuarioNuevo.pass, 10),
-                    imagen: usuarioNuevo.imagen, 
-
-                }
-            }
-
-            User.findOne({
-                where: {
-                    email: user.email
-                }
-            })
-            .then((result) => {
-                if (result) {
-                    error.message = "El email ya está registrado, ingrese uno nuevo"; 
-                    res.locals.errors = errors; 
-                    return res.render('register'); 
-                    
-                } else {
-                    User.create(user)
-
-                    .then((result) => {
-                        res.redirect('/user/login')
-                    })
-                    .catch((error) => {
-                        console.log(error)
-                    })
-                }
-            })
+           
 
             
         })
@@ -79,7 +50,7 @@ const userController = {
         });
     
     
-    }, */
+    }, 
 
     formLogin: function(req, res) {
       return res.render('login')
