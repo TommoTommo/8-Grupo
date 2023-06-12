@@ -8,7 +8,7 @@ router.get('/id/:id', productController.detalle);
 
 // router.post('/id/:id', userController.commentPost);
 
-router.get('/', productController.product);
+
 
 router.get('/add', productController.add);
 

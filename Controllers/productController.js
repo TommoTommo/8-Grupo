@@ -4,7 +4,8 @@ let product = db.Product;
 let op = db.Sequelize.Op;
 
 
-const productController = {//post
+const productController = {
+  //get
     detalle : function(req, res) {
       let id = req.params.id;
       let rel = {
@@ -27,7 +28,7 @@ const productController = {//post
 
   //     let errors = {};
 
-  //     if (req.session.user != undefined) {
+  //    if (req.session.user != undefined) {
 
  
             
@@ -37,33 +38,27 @@ const productController = {//post
   //         errors.message = "El commentario está vacio";
   //         res.locals.errors = errors;
   //         return res.render('product');
-  //     } else {
-  //         let info = req.body;
+  //      } else {
+  //          let info = req.body;
 
-  //         let commentStore = {
-  //             id:req.session.user.id
+  //          let commentStore = {
+  //              id:req.session.user.id
   //             comentarios: info.comment,
   //             updated_at:
-  //             created_at:
-  //             user_id:
-  //             product_id:
+  //              created_at:
+  //              user_id:
+  //              product_id:
               
   //         }
 
 
-  //         comment.create(commentStore)
-  //         .then(function(result) {
-  //             return res.render('product');
-  //         })
-  //         .catch(function(error) {
-  //             console.log(error);
-  //         }); 
+
           
 
-  //     }
-  // } else {
-  //     return res.redirect("/user/login");
-  // }
+  //      }
+  //  } else {
+  //      return res.redirect("/user/login");
+  //  }
   },
   //que va en post y que va en get
 
@@ -85,36 +80,21 @@ const productController = {//post
         console.log(error);
       });
 
-      
+      comment.create(commentStore)
+      .then(function(result) {
+          return res.render('product');
+      })
+      .catch(function(error) {
+          console.log(error);
+      }); 
   },
     add : function(req, res) {
         return res.render('productAdd', {
 
 
         });
-    },
-    product : function(req, res) {
-     /* filtrar por primaryKey */
-     //let id = req.params.id; //4
-
-     /* Crear relacion */
-    //  let rel = {
-    //    include: [{ association: "user1" }, { association: "comment2" }],
-    //  };
- 
-    //  movie.findByPk(id, rel)
-    //    .then(function (result) {
-    //      console.log(result);
-    //      return res.render("product", {
-    //        productdata: result,
-    //      });
-    //    })
-    //    .catch(function (error) {
-    //      console.log(error);
-    //    })
-
-    },
-    
+    }
+    ,
     /* Para mostrar producto */ 
     showForm: (req, res) =>{
       return res.render("productAdd");
