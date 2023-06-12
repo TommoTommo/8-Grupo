@@ -42,13 +42,17 @@
 							</p>
 							</div>
 						</article>
-
+						<!-- PORQUE HAY 2 FORS '?' -->
+						
 						<% for( let i = 0; i < product.comment2.length; i++ ) { %>
-							<img src="https://via.placeholder.com/35" alt="">
+						
 							<div class="data">
 								<p class="user">
-									<strong> <a href="profile.html">Nombre u suario: <%= product.user1.nombre %></a> </strong>
-									<%= product.comment2.comentarios %></p>
+									<img src="/images/products/<%= product.imagen %>" alt="" class="product-detail-img">
+									<strong> <a href="profile.html">Nombre u suario: <%= product.user1.nombre %></a> </strong>
+									<strong>Comentario: <%= product.comment2[i].comentarios %> </strong>
+									<strong>Comentario: <%= product.comment2[i].product_id %> </strong>
+
 							</div>
 
 							<% } %>

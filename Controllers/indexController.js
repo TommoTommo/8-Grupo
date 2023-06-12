@@ -45,11 +45,18 @@ const indexController = {
         
 
            product.findAll({
-               where: [
-                 { nombre: { [op.like]: "%" + busqueda + "%" } },
-              ],
+            where: [
+              {
+                [op.or]: [
+                  { nombre: { [op.like]: "%" + busqueda + "%" } },
+                  { descripcion: { [op.like]: "%" + busqueda + "%" } }
+                ]
+              }
+            ],
+            order: [['created_at', 'DESC']]
            })
            .then(function (result) {
+ 
           return res.render("searchResults", { listaProducts: result });
              })
              .catch(function (error) {

@@ -7,26 +7,35 @@
         <%- include('./partials/header') -%>
     <% } %>
     <!-- Novedades -->
-    <div class="container products-wrapper">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="products-title">Resultados de búsqueda</h2>
+    <% if (listaProducts.length !=0) { %>
+        <div class="container products-wrapper">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="products-title">Resultados de búsqueda</h2>
+                </div>
+                <!-- Show the "ultimos" products -->
+                <h2 class="col-12"> <i>///////////////////////////////////////// <br>
+                    <% for (let i = 0; i < listaProducts.length; i++) { %>
+                        <li class="li">
+                            
+                            <a href=""><%= listaProducts[i].nombre %></a>
+                            <a href="/product/id/<%= listaProducts[i].id %>"> <%= listaProducts[i].nombre %> </a>
+                            <img src="/images/products/<%= listaProducts[i].imagen %>" alt="" class="product-detail-img">
+                        </li>
+                    <% } %>
+                     <br>
+                ////////////////
+                </h2>
+     
+     
             </div>
-            <!-- Show the "ultimos" products -->
-            <h2 class="col-12"> <i>///////////////////////////////////////// <br>
-                <% for (let i = 0; i < listaProducts.length; i++) { %>
-                    <li class="li">
-                        
-                    
-                        <a href="/product/<%= listaProducts[i].id %>"> <%= listaProducts[i].nombre %> <%= listaProducts[i].imagen %></a>
-                    </li>
-                <% } %>
-                 <br>
-            ////////////////
-            </h2>
- 
- 
         </div>
-    </div>
+    
+    
+    </body>
+
+    <% } else { %>
+        <p>“No hay resultados para su criterio de búsqueda”</p>
+    <% } %>
 
 <%- include('./partials/footer') -%>

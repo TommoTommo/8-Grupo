@@ -19,7 +19,7 @@ CREATE TABLE productos(
     descripcion varchar(255) NOT NULL, 
     imagen varchar(255) NOT NULL, 
     updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP 
+    created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     user_id INT(11) UNSIGNED NOT NULL, 
     FOREIGN KEY (user_id) REFERENCES usuarios(id)
 );
