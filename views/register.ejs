@@ -13,25 +13,30 @@
 			<div class="col-12">
 				<h2 class="products-title">Registrate</h2>
 			</div>
+
+            <% if (locals.errors) { %>
+                <p style="color: red;"><%= locals.errors.message %></p>
+              <% } %>
+            
 			<!-- Show the "ultimos" products -->
 			<form action="/user/register" method="POST" class="register">
 
-                <label for="email">Email:</label>
+                <label for="email">Email: </label>
                 <input type="email" id="email" name="email" required><br><br>
 
-                <label for="usuario">Usuario:</label>
+                <label for="usuario">Usuario: </label>
                 <input type="text" id="usuario" name="usuario" required><br><br>
 
-                <label for="contraseña">Contraseña:</label>
-                <input type="password" id="password" name="password" required><br><br>
+                <label for="contraseña">Contraseña: </label>
+                <input type="password" id="password" name="pass" required><br><br>
 
-                <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+                <label for="fecha_nacimiento">Fecha de nacimiento: </label>
                 <input type="date" id="date" name="date" required><br><br>
 
-                <label for="nro_documento">Número de documento:</label>
+                <label for="nro_documento">Número de documento: </label>
                 <input type="number" id="dni" name="dni" required><br><br>
 
-                <label for="imagen">Foto Perfil:</label>
+                <label for="imagen">Foto Perfil: </label>
                 <input type="text" id="imagen" name="imagen" required><br><br>
 
                 <input type="submit" value="Enviar">

@@ -42,7 +42,29 @@ app.use(function(req, res, next){
   return next();
 })
 
-// este cambio
+/* configurar cookies de usuario*/
+app.use(function(req, res, next) {
+  
+  /* si existe la cooki en el navegador && no existe el usuario en la variable session */
+  if (req.cookies.userId != undefined && req.session.user == undefined) {
+    let idUsuarioEnCookie = req.cookies.userId;
+    db.User.findByPk(idUsuarioEnCookie)
+    .then((user) => {
+
+      req.session.user = user.dataValues;
+      res.locals.user = user.dataValues;
+
+      return next();
+      
+    }).catch((err) => {
+      console.log(err);
+    });
+
+  } else {
+    /* Pasa al siguiente */
+    return next();
+  }
+});
 
 app.use('/', indexRouter);
 app.use('/user', usersRouter);

@@ -1,6 +1,5 @@
 claveCorrecta= false
 const db = require("../database/models")
-const User = require("../database/models/User")
 const bcrypt = require('bcryptjs')
 
 let user = db.User
@@ -17,45 +16,57 @@ const userController = {
     }, 
     //store
     registerPost: (req, res) => {
-        let info = req.body;
+        
+        let errors = {};
 
         if (req.body.user == "") {
             errors.message = "El campo 'nombre' esta vacío";
             res.locals.errors = errors; //me permite llevar la información a las vistas 
             return res.render('register'); 
         
-        }
+        }  else if (req.body.email == "") {
+            errors.message = "El campo 'email' esta vacio";
+            res.locals.errors = errors;
+            return res.render('register');
 
+        }  else if (req.body.pass.length <= 3) {
+            errors.message = "El campo 'contraseña' requiere mínimo 3 caracteres";
+            res.locals.errors = errors;
+            return res.render('register');
+
+        }  else if (req.body.imagen == "") {
+            errors.message = "Por favor, suba una foto de perfil";
+            res.locals.errors = errors;
+            return res.render('register');
+
+        } 
+        
+        let info = req.body;
         let userStore = {
             nombre: info.usuario,
             email: info.email,
-            pass: bcrypt.hashSync(info.password, 10),
-            imagen: info.imagen,
+            pass: bcrypt.hashSync(info.pass, 10),
+            imagen: info.imagen, 
         }
-
-        console.log(userStore);
-  
-        user.create(userStore)
+        db.User.create(userStore)
         .then(function(result) {
-            let errors = {}; 
-
-            
-
+            return res.send(result)
+        }).catch(function(err) {
+            if (err.errors[0].validatorKey == "not_unique") { // el catch trae errores y le pedi que me traiga el primer error [0] y .validationKey es el error que si es "no unico" (==) me mande el mensaje que esta abajo 
+                errors.message = "El mail ya existe";
+                res.locals.errors = errors;
+                return res.render('user/login');
+            }
            
-
-            
         })
-        .catch(function(error) {
-            console.log(error);
-        });
-    
-    
-    }, 
 
+
+    },
     formLogin: function(req, res) {
-      return res.render('login')
-  },
-  loginPost: function(req, res) {
+      return res.render('login'); 
+    },
+
+    loginPost: function(req, res) {
       let emailBuscado = req.body.email;
       let pass = req.body.password;
 
@@ -68,18 +79,28 @@ const userController = {
           if (result != null) {
               let claveCorrecta = bcrypt.compareSync(pass, result.password)
               if (claveCorrecta) {
-                  //session 
-                  return res.send("Existe el email y la password es correcta");
+                  //pone un usuario en session
+                  req.session.user= result.dataValues;
+                  //hago clic en recordame = creamos una cookie
+                  if(req.body.rememberme != undefined){
+                    res.cookie('userId', result.dataValues.id, {maxAge: 1000 * 60 * 15}); 
+                  }
+                  return res.redirect("/"); //Existe el email y la password es correcta, por eso me manda al login por ruta post
               } else {
                   return res.send("Existe el email, pero la password es incorrecta");
               }
           } else {
-              return res.send("No Existe el email ingresado")
+              return res.send("No existe el email ingresado")
           }
           
       }).catch((err) => {
+        /* if (err.errors[0].validatorKey == "not_unique") {  
+            errors.message = "El mail ya existe";
+            res.locals.errors = errors;
+            return res.render('user/login');
+        } */ 
           console.log(err);
-      });
+      }); 
   }, 
 
     profile : function(req, res) {
