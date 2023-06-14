@@ -75,9 +75,9 @@ const userController = {
       };
       user.findOne(filtrado)
       .then((result) => {
-
+        
           if (result != null) {
-              let claveCorrecta = bcrypt.compareSync(pass, result.password)
+              let claveCorrecta = bcrypt.compareSync(pass, result.pass)
               if (claveCorrecta) {
                   //pone un usuario en session
                   req.session.user= result.dataValues;
