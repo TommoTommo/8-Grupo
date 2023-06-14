@@ -2,6 +2,7 @@ const Data = require("../Data/data")
 const db = require("../database/models");
 let product = db.Product;
 let op = db.Sequelize.Op;
+let comment=db.Comment
 
 
 const productController = {
@@ -28,17 +29,17 @@ const productController = {
 
 
   },
-
+  
 
   //post
   commentPost: function(req, res) {
       
-      let id=req.session.user.id
+
 
 
           let info = req.body;
 
-          let userStore = {
+          let commentStore = {
               comentarios: info.comment,
               // user_id:req.session.user.id,
               user_id:1,
@@ -46,16 +47,24 @@ const productController = {
 
           }
 
-          if (userStore.comentarios.length != 0) {
-            comment.create(userStore)
+          if (commentStore.comentarios.length != 0) {
+            comment.create(commentStore)
             .then(function(result) {
-                return res.redirect(`/id/${req.params.id}`);
+                return res.redirect(`/product/id/${req.params.id}`);
             })
             .catch(function(error) {
                 console.log(error);
             }); 
-  }
- },
+          
+        }else{
+
+           return res.redirect(`/product/id/${req.params.id}`);
+
+      }
+
+},
+
+
     add : function(req, res) {
         return res.render('productAdd', {
 

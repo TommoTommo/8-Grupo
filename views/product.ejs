@@ -62,11 +62,8 @@
 						
 
 					</section>
-					<form class="form" action="/id/<%=id%>" method="POST">
-						<% if (locals.errors) { %>
-							<p style="color: red;"><%= errors.message %></p>
-					  <% } %>
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario" name=comment>
+					<form class="form" action="/product/comment/<%=id%>" method="POST">
+						<input class="form-input" type="text" value="" placeholder="Agregar comentario" name="comment">
 						<button  type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
 					<hr>
