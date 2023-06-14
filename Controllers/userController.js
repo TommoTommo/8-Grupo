@@ -55,7 +55,7 @@ const userController = {
              if (err.errors[0].validatorKey == "not_unique") { // el catch trae errores y le pedi que me traiga el primer error [0] y .validationKey es el error que si es "no unico" (==) me mande el mensaje que esta abajo 
                 errors.message = "El mail ya existe";
                  res.locals.errors = errors;
-                return res.render('user/login');
+                return res.render('login'); // !!
             }
            
          })
@@ -75,9 +75,9 @@ const userController = {
       };
       user.findOne(filtrado)
       .then((result) => {
-
+        
           if (result != null) {
-              let claveCorrecta = bcrypt.compareSync(pass, result.password)
+              let claveCorrecta = bcrypt.compareSync(pass, result.pass)
               if (claveCorrecta) {
                   //pone un usuario en session
                   req.session.user= result.dataValues;
