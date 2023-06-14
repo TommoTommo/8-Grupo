@@ -17,6 +17,7 @@ const productController = {
           
           return res.render("product", {
             product: result,
+            id:req.params.id
           });
         })
         .catch(function (error) {
@@ -26,41 +27,8 @@ const productController = {
     
 
 
-  //     let errors = {};
-
-  //    if (req.session.user != undefined) {
-
- 
-            
-
-
-  //     if (req.body.email == "") {
-  //         errors.message = "El commentario está vacio";
-  //         res.locals.errors = errors;
-  //         return res.render('product');
-  //      } else {
-  //          let info = req.body;
-
-  //          let commentStore = {
-  //              id:req.session.user.id
-  //             comentarios: info.comment,
-  //             updated_at:
-  //              created_at:
-  //              user_id:
-  //              product_id:
-              
-  //         }
-
-
-
-          
-
-  //      }
-  //  } else {
-  //      return res.redirect("/user/login");
-  //  }
   },
-  //que va en post y que va en get
+
 
   //post
   commentPost: function(req, res) {
@@ -68,26 +36,26 @@ const productController = {
       let id=req.session.user.id
 
 
-      user.findByPk(id)
-            
-      .then(function (result) {
-        console.log(result);
-        return res.render("profile", {
-          userdata: result,
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+          let info = req.body;
 
-      comment.create(commentStore)
-      .then(function(result) {
-          return res.render('product');
-      })
-      .catch(function(error) {
-          console.log(error);
-      }); 
-  },
+          let userStore = {
+              comentarios: info.comment,
+              // user_id:req.session.user.id,
+              user_id:1,
+              product_id:req.params.id
+
+          }
+
+          if (userStore.comentarios.length != 0) {
+            comment.create(userStore)
+            .then(function(result) {
+                return res.redirect(`/id/${req.params.id}`);
+            })
+            .catch(function(error) {
+                console.log(error);
+            }); 
+  }
+ },
     add : function(req, res) {
         return res.render('productAdd', {
 

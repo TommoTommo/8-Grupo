@@ -6,7 +6,7 @@ const productController = require("../Controllers/productController")
 
 router.get('/id/:id', productController.detalle);
 
-// router.post('/id/:id', userController.commentPost);
+router.post('/id/:id', productController.commentPost);
 
 
 

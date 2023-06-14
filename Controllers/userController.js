@@ -19,46 +19,46 @@ const userController = {
         
         let errors = {};
 
-        if (req.body.user == "") {
-            errors.message = "El campo 'nombre' esta vacío";
-            res.locals.errors = errors; //me permite llevar la información a las vistas 
-            return res.render('register'); 
+          if (req.body.user == "") {
+             errors.message = "El campo 'nombre' esta vacío";
+              res.locals.errors = errors; //me permite llevar la información a las vistas 
+              return res.render('register'); 
         
-        }  else if (req.body.email == "") {
-            errors.message = "El campo 'email' esta vacio";
-            res.locals.errors = errors;
-            return res.render('register');
+          }  else if (req.body.email == "") {
+              errors.message = "El campo 'email' esta vacio";
+              res.locals.errors = errors;
+              return res.render('register');
 
-        }  else if (req.body.pass.length <= 3) {
-            errors.message = "El campo 'contraseña' requiere mínimo 3 caracteres";
-            res.locals.errors = errors;
-            return res.render('register');
+          }  else if (req.body.pass.length <= 3) {
+              errors.message = "El campo 'contraseña' requiere mínimo 3 caracteres";
+              res.locals.errors = errors;
+              return res.render('register');
 
-        }  else if (req.body.imagen == "") {
-            errors.message = "Por favor, suba una foto de perfil";
-            res.locals.errors = errors;
-            return res.render('register');
+          }  else if (req.body.imagen == "") {
+              errors.message = "Por favor, suba una foto de perfil";
+              res.locals.errors = errors;
+             return res.render('register');
 
-        } 
+         } 
         
-        let info = req.body;
-        let userStore = {
-            nombre: info.usuario,
-            email: info.email,
-            pass: bcrypt.hashSync(info.pass, 10),
-            imagen: info.imagen, 
-        }
-        db.User.create(userStore)
-        .then(function(result) {
-            return res.send(result)
-        }).catch(function(err) {
-            if (err.errors[0].validatorKey == "not_unique") { // el catch trae errores y le pedi que me traiga el primer error [0] y .validationKey es el error que si es "no unico" (==) me mande el mensaje que esta abajo 
+         let info = req.body;
+         let userStore = {
+             nombre: info.usuario,
+             email: info.email,
+             pass: bcrypt.hashSync(info.pass, 10),
+             imagen: info.imagen, 
+         }
+         db.User.create(userStore)
+         .then(function(result) {
+             return res.send(result)
+         }).catch(function(err) {
+             if (err.errors[0].validatorKey == "not_unique") { // el catch trae errores y le pedi que me traiga el primer error [0] y .validationKey es el error que si es "no unico" (==) me mande el mensaje que esta abajo 
                 errors.message = "El mail ya existe";
-                res.locals.errors = errors;
+                 res.locals.errors = errors;
                 return res.render('user/login');
             }
            
-        })
+         })
 
 
     },
