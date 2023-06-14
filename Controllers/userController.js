@@ -55,7 +55,7 @@ const userController = {
              if (err.errors[0].validatorKey == "not_unique") { // el catch trae errores y le pedi que me traiga el primer error [0] y .validationKey es el error que si es "no unico" (==) me mande el mensaje que esta abajo 
                 errors.message = "El mail ya existe";
                  res.locals.errors = errors;
-                return res.render('user/login');
+                return res.render('login'); // !!
             }
            
          })
