@@ -120,7 +120,7 @@ const userController = {
               user.findByPk(id2, rel)
               
                 .then(function (result) {
-                  console.log(result);
+                 
                   return res.render("profile", {
                     userdata: result,
                   });

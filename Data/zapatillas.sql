@@ -40,11 +40,11 @@ CREATE TABLE comentarios(
 );
 
 INSERT INTO usuarios (nombre, email, pass, imagen) VALUES
-("Teresa", "tere@gmail.com", "1234", "/images/users/default-image.png"),
-("Thomas", "thomas@gmail.com", "1234", "/images/users/default-image.png"),
-("Agustin", "agus@outlook.com", "1234", "/images/users/default-image.png"),
-("Pedro", "pedro@hotmail.com", "1234", "/images/users/default-image.png"),
-("Paula", "paula@yahoo.com", "1234", "/images/users/default-image.png");
+("Teresa", "tere@gmail.com", "1234", "/images/users/Teresa.png"),
+("Thomas", "thomas@gmail.com", "1234", "/images/users/Thomas.png"),
+("Agustin", "agus@outlook.com", "1234", "/images/users/Agustin.png"),
+("Pedro", "pedro@hotmail.com", "1234", "/images/users/Pedro.png"),
+("Paula", "paula@yahoo.com", "1234", "/images/users/Paula.png");
 
 
 
