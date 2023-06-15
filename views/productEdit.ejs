@@ -1,0 +1,36 @@
+<%- include('./partials/head') %>
+
+<body>
+ <% if (locals.user != null){%>
+	<%- include('./partials/headerLogueado')  %>
+ <%}  else {%>
+	<%- include('./partials/header') %>
+<%}%>
+ 	
+
+        <h2 class="col-12">
+            <form class="form" action="/product/update/<%= product.id %>" method="POST">
+                <div class="title">Editar Producto: <%= product.nombre %></div>
+                <div class="input-container ic1">
+                  <input id="nombre" class="input" type="text" name="nombre" placeholder="actualiza la imagen" />
+                </div>
+                <div class="input-container ic2">
+                  <input id="descripcion" class="input" type="text" name="descripcion" placeholder="actualiza la descripcion"/>
+                </div>
+                <div class="input-container ic3">
+                    <input id="imagen" class="input" type="text" name="imagen" placeholder="actualiza la imagen" />
+                </div>
+              
+                <button type="text" class="submit">Guardar</button>
+    
+    
+              </form>
+
+            
+
+
+
+        </h2>
+
+
+<%- include('./partials/footer') %>

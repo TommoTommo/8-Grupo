@@ -93,6 +93,51 @@ const productController = {
           console.log(error);
         });
     },
+
+    showProductUpdate: (req, res) => { 
+      if (req.session.user == undefined) {
+        // mostrar error que dice, no estas logeado
+        return res.redirect('/');
+      } else {
+        let idProduct = req.params.id;
+        product.findByPk(idProduct)
+        .then((resultado) => {
+          return res.render("productEdit", {product: resultado})
+        }).catch((err) => {
+          console.log(err)
+        });
+      }   
+    },
+
+    update: (req, res) => {
+      let id = req.params.id;
+      let data = req.body;
+      
+      product.update(data, {
+          where: [{ id: id }],
+        })
+        .then((result) => {
+          return res.redirect("/product/id/" + id);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+
+    },
+
+    destroy: (req, res) => {
+
+
+
+    }
+
+
+
+
+
+
+
 };
 
 
