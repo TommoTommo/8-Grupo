@@ -12,9 +12,19 @@
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 			<h2 class="products-title">Nombre del producto:<%= product.nombre %> </h2> 
-			<p class="product-detail-description">
-				<a href="/product/update/<%= product.id %>">Editar</a>
-			</p>
+
+
+			<% if (locals.user != undefined && locals.user.id == product.user_id) { %>
+				<div class="sectionUpdate">
+					<div>
+					  <a class="btn btnUpdate"  href="/product/update/<%= product.id %> ">Modificar</a>
+					</div>
+					<form action="/product/delete" method="POST">
+						<input type="text" hidden name="id" id="" value="<%= product.id %>">
+						<input class="btn btnDelete" value="Eliminar" type="submit">
+					</form>
+				  </div>
+						<% } %>  
 		</div>
 		<div class="product-detail">
 			<div class="row">

@@ -128,10 +128,19 @@ const productController = {
 
     destroy: (req, res) => {
 
-
-
-    }
-
+      let productDelete = req.body.id;
+      filtrado = {
+        where: [
+          {id:productDelete}]
+        }
+      product.destroy (filtrado)
+      .then((resultado) => {
+        return res.redirect("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
 
 
