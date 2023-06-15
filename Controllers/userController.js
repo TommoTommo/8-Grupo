@@ -104,11 +104,10 @@ const userController = {
   }, 
 
     profile : function(req, res) {
-            //SACO EL ! DEL != undefined PORQUE TODAVIA NO SE PEDUE INICIAR SECION
-            // if (req.session.user = undefined) {
+           
+            if (req.session.user != undefined) {
 
-              //let id=req.session.user.id
-              let id2= 1
+              let id= res.session.user.id
             
     
               /* Crear relacion */
@@ -117,7 +116,7 @@ const userController = {
               };
       
               
-              user.findByPk(id2, rel)
+              user.findByPk(id, rel)
               
                 .then(function (result) {
                  
@@ -128,9 +127,9 @@ const userController = {
                 .catch(function (error) {
                   console.log(error);
                 });
-            // }else{
-            //   return res.redirect("/users/login");
-            // }
+             }else{
+               return res.redirect("/user/login");
+             }
     
            
      
