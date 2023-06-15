@@ -43,8 +43,7 @@ const productController = {
 
           let commentStore = {
               comentarios: info.comment,
-              // user_id:req.session.user.id,
-              user_id:1,
+             user_id:req.session.user.id,
               product_id:req.params.id
 
           }
@@ -74,22 +73,19 @@ const productController = {
         });
     }
     ,
-    /* Para mostrar producto */ 
+   
     showForm: (req, res) =>{
-      return res.render("productAdd");
-      // NO BORRAR PORFAVOR
-      // if (req.session.user != undefined) {
-      //   return res.render("productAdd");
-      // }else{
-      //   return res.redirect("/users/login");
-      // }
-
+      if (req.session.user != undefined) {
+        return res.render("productAdd");
+      }else{
+        return res.redirect("/users/login");
+      }
 
     },
     store: (req, res) =>{
       let info = req.body;
-      product
-        .create(info)
+      info.user_id = req.session.user.id
+        product.create(info)
         .then((result) => {
           return res.redirect("/");
         })
@@ -98,5 +94,8 @@ const productController = {
         });
     },
 };
+
+
+
 
 module.exports = productController;
