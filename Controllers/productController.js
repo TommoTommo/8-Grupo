@@ -11,6 +11,8 @@ const productController = {
       let id = req.params.id;
       let rel = {
         include: [{ association: "user1" }, { association: "comment2", include: [{  association: "user2"  }]}],
+        
+        
       };
       
       product.findByPk(id, rel)

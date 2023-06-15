@@ -40,29 +40,29 @@ const indexController = {
 
     //buscador
     results : function(req, res) {
-        let busqueda = req.query.search
-  
-        
-
-           product.findAll({
-            where: [
-              {
-                [op.or]: [
-                  { nombre: { [op.like]: "%" + busqueda + "%" } },
-                  { descripcion: { [op.like]: "%" + busqueda + "%" } }
-                ]
-              }
-            ],
-            order: [['created_at', 'DESC']]
+      let busqueda = req.query.search
+    
+     
+   
+         product.findAll({include: [{ association: "user1"}],
+          where: [
+            {
+              [op.or]: [
+                { nombre: { [op.like]: "%" + busqueda + "%" } },
+                { descripcion: { [op.like]: "%" + busqueda + "%" } }
+              ]
+            }
+          ],
+          order: [['created_at', 'DESC']]
+         })
+         .then(function (result) {
+          
+        return res.render("searchResults", { listaProducts: result });
            })
-           .then(function (result) {
- 
-          return res.render("searchResults", { listaProducts: result });
-             })
-             .catch(function (error) {
-               console.log(error);
-            })
-           } 
+           .catch(function (error) {
+             console.log(error);
+          })
+         } 
 
          
 

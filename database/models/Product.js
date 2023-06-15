@@ -63,3 +63,21 @@ Product.associate = function(models) {
     return Product;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

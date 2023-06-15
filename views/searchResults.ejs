@@ -18,8 +18,9 @@
                     <% for (let i = 0; i < listaProducts.length; i++) { %>
                         <li class="li">
                             
-                            <a href=""><%= listaProducts[i].nombre %></a>
+                            
                             <a href="/product/id/<%= listaProducts[i].id %>"> <%= listaProducts[i].nombre %> </a>
+                             <a href="/product/id/">  <%=listaProducts[i].user1.nombre%> %> </a>
                             <img src="/images/products/<%= listaProducts[i].imagen %>" alt="" class="product-detail-img">
                         </li>
                     <% } %>
@@ -35,7 +36,7 @@
     </body>
 
     <% } else { %>
-        <p>“No hay resultados para su criterio de búsqueda”</p>
+        <h1>“No hay resultados para su criterio de búsqueda”<h1>
     <% } %>
 
 <%- include('./partials/footer') -%>
