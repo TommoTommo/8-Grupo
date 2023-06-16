@@ -135,12 +135,37 @@ const userController = {
     
     ,
     profileEdit : function(req, res) {
-        return res.render('profileEdit', {
-
+      if (req.session.user == undefined) {
+        // mostrar error que dice, no estas logeado
+        return res.redirect('/');
+      } else {
+        let idProfile = req.params.id;
+        user.findByPk(idProfile)
+        .then((resultado) => {
+          return res.render("profileEdit", {user: resultado}),
+          console.log(idProfile)
+        }).catch((err) => {
+          console.log(err)
         });
+        
+      } 
     },
 
     profileEditSend : function (req, res) {
+      let id = req.params.id;
+      let data = req.body;
+      
+      user.update(data, {
+          where: [{ id: id }],
+        })
+        .then((result) => {
+          return res.redirect("/user/profile/" + id);
+          
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
 
         
     },

@@ -10,8 +10,8 @@ const userController = require("../Controllers/userController")
 
 router.get('/profile/:id', userController.profile);
 
-router.get('/edit', userController.profileEdit);
-router.post('/edit', userController.profileEditSend)
+router.get('/profile/edit/:id', userController.profileEdit);
+router.post('/profile/edit/:id', userController.profileEditSend)
 
 router.get('/login', userController.formLogin);
 router.post('/login', userController.loginPost); 

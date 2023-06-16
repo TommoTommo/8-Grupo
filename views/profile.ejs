@@ -19,7 +19,7 @@
 
 					<% if (locals.user != null) { %>
 						<% if (locals.user.id == userdata.id) { %>
-							<a href="/user/edit">
+							<a href="/user/profile/edit/<%=userdata.id%>">
 								<i class="fas fa-cog"></i>
 							</a>
 						<% } %>
