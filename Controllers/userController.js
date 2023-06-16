@@ -140,13 +140,13 @@ const userController = {
         });
     },
 
-    logout: (req, res) => {
+   /* logout: (req, res) => {
        // Destruir la session 
         req.session.destroy();
        // Destruir la cookie 
         res.clearCookie('userId');
          return res.redirect('/'); 
-    }, 
+    }, */
 
 }
 
