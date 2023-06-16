@@ -134,11 +134,17 @@ const userController = {
         }
     
     ,
-    profileedit : function(req, res) {
+    profileEdit : function(req, res) {
         return res.render('profileEdit', {
 
         });
     },
+
+    profileEditSend : function (req, res) {
+
+        
+    },
+
 
     logout: (req, res) => {
        // Destruir la session 
