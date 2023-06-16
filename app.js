@@ -13,6 +13,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/user');
 
 let productsRouter = require("./routes/product")
+let db = require("./database/models")
+
 
 var app = express();
 
