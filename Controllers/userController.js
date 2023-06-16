@@ -105,9 +105,9 @@ const userController = {
 
     profile : function(req, res) {
            
-            if (req.session.user != undefined) {
-
-              let id= res.session.user.id
+      
+              let id=req.session.user.id
+           
             
     
               /* Crear relacion */
@@ -127,12 +127,9 @@ const userController = {
                 .catch(function (error) {
                   console.log(error);
                 });
-             }else{
-               return res.redirect("/user/login");
-             }
+           
     
            
-     
     
         }
     

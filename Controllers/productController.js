@@ -36,8 +36,9 @@ const productController = {
   //post
   commentPost: function(req, res) {
       
-if (req.session.user==undefined) {
-  
+
+
+
           let info = req.body;
 
           let commentStore = {
@@ -61,10 +62,7 @@ if (req.session.user==undefined) {
            return res.redirect(`/product/id/${req.params.id}`);
 
       }
-    }else{
 
-      return res.redirect("/login");
-    }
 },
 
 
