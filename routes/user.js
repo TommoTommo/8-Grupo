@@ -8,7 +8,7 @@ const userController = require("../Controllers/userController")
 /* GET users listing. */
 //ruta post de register
 
-router.get('/profile', userController.profile);
+router.get('/profile/:id', userController.profile);
 
 router.get('/edit', userController.profileEdit);
 router.post('/edit', userController.profileEditSend)

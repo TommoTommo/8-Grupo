@@ -36,33 +36,36 @@ const productController = {
   //post
   commentPost: function(req, res) {
       
+      
+    if (req.session.user !=undefined) {
+  
+      let info = req.body;
 
-
-
-          let info = req.body;
-
-          let commentStore = {
-              comentarios: info.comment,
-             user_id:req.session.user.id,
-              product_id:req.params.id
-
-          }
-
-          if (commentStore.comentarios.length != 0) {
-            comment.create(commentStore)
-            .then(function(result) {
-                return res.redirect(`/product/id/${req.params.id}`);
-            })
-            .catch(function(error) {
-                console.log(error);
-            }); 
-          
-        }else{
-
-           return res.redirect(`/product/id/${req.params.id}`);
+      let commentStore = {
+          comentarios: info.comment,
+         user_id:req.session.user.id,
+          product_id:req.params.id
 
       }
 
+      if (commentStore.comentarios.length != 0) {
+        comment.create(commentStore)
+        .then(function(result) {
+            return res.redirect(`/product/id/${req.params.id}`);
+        })
+        .catch(function(error) {
+            console.log(error);
+        }); 
+      
+    }else{
+
+       return res.redirect(`/product/id/${req.params.id}`);
+
+  }
+}else{
+
+  return res.redirect("/user/login");
+}
 },
 
 

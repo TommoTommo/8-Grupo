@@ -105,8 +105,8 @@ const userController = {
 
     profile : function(req, res) {
            
-      
-              let id=req.session.user.id
+  
+              let id=req.params.id;
            
             
     
@@ -127,8 +127,8 @@ const userController = {
                 .catch(function (error) {
                   console.log(error);
                 });
-           
-    
+
+
            
     
         }

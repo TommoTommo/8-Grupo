@@ -16,9 +16,14 @@
 				<div class="d-flex align-items-center ">
 					
 					<h1 class="main-title"> Nombre Usuario:<%=userdata.nombre%>
-						<a href="/user/edit">
-							<i class="fas fa-cog"></i>
-						</a>
+
+					<% if (locals.user != null) { %>
+						<% if (locals.user.id == userdata.id) { %>
+							<a href="/user/edit">
+								<i class="fas fa-cog"></i>
+							</a>
+						<% } %>
+					<% } %>
 					</h1>
 					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 				</div>
