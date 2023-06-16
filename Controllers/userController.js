@@ -50,7 +50,7 @@ const userController = {
          }
          db.User.create(userStore)
          .then(function(result) {
-             return res.send(result)
+             return res.redirect("/user/login")
          }).catch(function(err) {
              if (err.errors[0].validatorKey == "not_unique") { // el catch trae errores y le pedi que me traiga el primer error [0] y .validationKey es el error que si es "no unico" (==) me mande el mensaje que esta abajo 
                 errors.message = "El mail ya existe";
@@ -140,13 +140,13 @@ const userController = {
         });
     },
 
-   /* logout: (req, res) => {
+    logout: (req, res) => {
        // Destruir la session 
         req.session.destroy();
        // Destruir la cookie 
         res.clearCookie('userId');
          return res.redirect('/'); 
-    }, */
+    }, 
 
 }
 
