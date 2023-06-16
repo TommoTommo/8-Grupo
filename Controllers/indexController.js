@@ -11,9 +11,14 @@ let op = db.Sequelize.Op
 const indexController = {
 
     index: (req, res) => {
+
+ 
      
-        product.findAll()
+        product.findAll({
+          include: [{ association: "user1" }],
+        })
         .then(function (result) {
+         
           return res.render("index", { listaProductos: result });   
         })
         .catch(function (error) {

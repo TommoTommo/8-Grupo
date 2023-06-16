@@ -52,22 +52,25 @@
 							</div>
 						</article>
 						
-						
+					<% if (locals.user != null){%>
 						<% for( let i = 0; i < product.comment2.length; i++ ) { %>
 						
 							<div class="data">
 								<p class="user">
 									<img src="<%= product.comment2[i].user2.imagen%>" alt="" class="product-detail-img">
 									
-									<strong>Usuario: <%= product.comment2[i].user2.nombre %> </strong><br>
-									<strong>Comentario: <%= product.comment2[i].comentarios %> </strong>
+
+									<strong>Usuario: <a href="/user/profile/<%=product.comment2[i].user2.id%>"> <%= product.comment2[i].user2.nombre %> </a></strong>
+									 <br>
 									
+									<strong>Comentario: <%= product.comment2[i].comentarios %> </strong>
+								
 
 							</div>
 
 							<% } %>
 						</article>
-						
+					
 					
 						
 
@@ -78,6 +81,9 @@
 					</form>
 					<hr>
 				</div>
+				<%}  else {%>
+					<strong> Debe estar logueado para comentar</strong>
+				<%}%>
 			</div>
 		</div>
 	</div>

@@ -1,0 +1,41 @@
+<%- include('./partials/head') -%>
+
+<body>
+    <% if (locals.user != null) { %>
+        <%- include('./partials/headerLogueado') -%>
+    <% } else { %>
+        <%- include('./partials/header') -%>
+    <% } %>
+    <!-- Novedades -->
+    <% if (listaUser.length !=0) { %>
+        <div class="container products-wrapper">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="products-title">Resultados de búsqueda</h2>
+                </div>
+                <!-- Show the "ultimos" products -->
+                <h2 class="col-12"> <i>///////////////////////////////////////// <br>
+                    <% for (let i = 0; i < listaUser.length; i++) { %>
+                        <li class="li">
+                            
+                            
+                            <p><%= listaUser[i].nombre %> </p> 
+                           
+                        </li>
+                    <% } %>
+                     <br>
+                ////////////////
+                </h2>
+     
+     
+            </div>
+        </div>
+    
+    
+    </body>
+
+    <% } else { %>
+        <h1>“No hay resultados para su criterio de búsqueda”<h1>
+    <% } %>
+
+<%- include('./partials/footer') -%>
