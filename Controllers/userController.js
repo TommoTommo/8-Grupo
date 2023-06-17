@@ -10,10 +10,15 @@ let op = db.Sequelize.Op
 const userController = {
     
     //uso del CRUD create
+    
      formRegister : function(req, res) {
+      if (req.session.user ==undefined) {
         return res.render('register', {
 
-        });
+        })}else{return res.redirect("/")
+      }
+
+
     }, 
     //store
     registerPost: (req, res) => {
@@ -64,9 +69,12 @@ const userController = {
 
     },
     formLogin: function(req, res) {
-      return res.render('login'); 
+      if (req.session.user ==undefined) {
+        return res.render('login'); 
+    }else{return res.redirect("/")
+    }
+      
     },
-
     loginPost: function(req, res) {
       let emailBuscado = req.body.email;
       let pass = req.body.password;
