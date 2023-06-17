@@ -166,7 +166,8 @@ const userController = {
       let id = req.params.id;
       let data = req.body;
       console.log(data);
-      if (data.pass != null) {
+      if (data.pass != "") {
+        data.pass=bcrypt.hashSync(data.pass, 10),
       user.update(data, {
           where: [{ id: id }],
         })
@@ -179,8 +180,6 @@ const userController = {
         });
       } else {
         delete data.pass
-        data.pass= req.session.user.pass
-
         user.update(data, {
           where: [{ id: id }],
         })
