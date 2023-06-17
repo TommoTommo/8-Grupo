@@ -8,8 +8,8 @@ CREATE TABLE usuarios(
     email varchar(255) UNIQUE NOT NULL,
     pass varchar(255) NOT NULL, 
     imagen varchar(255) NOT NULL, 
-    updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+    reated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 
@@ -18,8 +18,8 @@ CREATE TABLE productos(
     nombre varchar(255) NOT NULL, 
     descripcion varchar(255) NOT NULL, 
     imagen varchar(255) NOT NULL, 
+    reated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     user_id INT(11) UNSIGNED NOT NULL, 
     FOREIGN KEY (user_id) REFERENCES usuarios(id)
 );
@@ -28,8 +28,8 @@ CREATE TABLE productos(
 CREATE TABLE comentarios(
     id int(11) UNSIGNED PRIMARY KEY AUTO_INCREMENT, 
     comentarios varchar(255) NOT NULL, 
-    updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, 
     created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, 
     deleted_at timestamp NULL DEFAULT NULL, 
 
     user_id INT(11) UNSIGNED NOT NULL,
@@ -40,11 +40,11 @@ CREATE TABLE comentarios(
 );
 
 INSERT INTO usuarios (nombre, email, pass, imagen) VALUES
-("Teresa", "tere@gmail.com", "1234", "/images/users/Teresa.png"),
-("Thomas", "thomas@gmail.com", "1234", "/images/users/Thomas.png"),
-("Agustin", "agus@outlook.com", "1234", "/images/users/Agustin.png"),
-("Pedro", "pedro@hotmail.com", "1234", "/images/users/Pedro.png"),
-("Paula", "paula@yahoo.com", "1234", "/images/users/Paula.png");
+("Teresa", "tere@gmail.com", "$2a$10$8peiwva5e4vD4TK8LBKeu.scfARJZjzWkElIyNxVD3Ke/xSrzNzUy", "/images/users/Teresa.png"),
+("Thomas", "thomas@gmail.com", "$2a$10$8peiwva5e4vD4TK8LBKeu.scfARJZjzWkElIyNxVD3Ke/xSrzNzUy", "/images/users/Thomas.png"),
+("Agustin", "agus@outlook.com", "$2a$10$8peiwva5e4vD4TK8LBKeu.scfARJZjzWkElIyNxVD3Ke/xSrzNzUy", "/images/users/Agustin.png"),
+("Pedro", "pedro@hotmail.com", "$2a$10$8peiwva5e4vD4TK8LBKeu.scfARJZjzWkElIyNxVD3Ke/xSrzNzUy", "/images/users/Pedro.png"),
+("Paula", "paula@yahoo.com", "$2a$10$8peiwva5e4vD4TK8LBKeu.scfARJZjzWkElIyNxVD3Ke/xSrzNzUy", "/images/users/Paula.png");
 
 
 
@@ -52,11 +52,13 @@ INSERT INTO productos (nombre, descripcion, imagen, user_id) VALUES
 ("Nike Quest", "Zapatillas de running para hombre", "/images/products/img-nike-quest.png", 1),
 ("Jordan Air", "Zapatillas de running para hombre", "/images/products/img-jordan-air.png", 1),
 ("Adidas mujer forumlow", "Zapatillas de running para mujer", "/images/products/img-adidas-mujer-forumlow.png", 2),
-("Adidas runfalcom", "Zapatillas de running para hombre", "/images/products/img-adidas-runfalcon.png", 3),
+("Adidas runfalcom", "Zapatillas de running para hombre", "/images/products/img-adidas-runfalcon.png", 2),
 ("Adidas running","Zapatillas de running para hombre","/images/products/img-adidas-running.png",3),
-("Jordan Chicago","Zapatillas de running para hombre","/images/products/img-jordan-chicago.png",4),
+("Jordan Chicago","Zapatillas de running para hombre","/images/products/img-jordan-chicago.png",3),
 ("Nike Revolution","Zapatillas de running para hombre","/images/products/img-nike-revolution.png",4),
-("Reebok Mujer","Zapatillas de running para mujer","/images/products/img-reebok-mujer.png",4);
+("Reebok Mujer","Zapatillas de running para mujer","/images/products/img-reebok-mujer.png",4),
+("Puma Softride Ruby","Zapatillas de running para mujer","/images/products/img-puma-softride-ruby.jpeg",5),
+("Nike Air Max Excee","Zapatillas de running para hombre","/images/products/img-nike-air-max-excee.jpeg",5),;
 
 
 
