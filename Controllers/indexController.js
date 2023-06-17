@@ -15,7 +15,7 @@ const indexController = {
  
      
         product.findAll({
-          include: [{ association: "user1" }],
+          include: [{ association: "user1" }],order: [['created_at', 'DESC']]
         })
         .then(function (result) {
          

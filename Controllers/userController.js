@@ -113,7 +113,7 @@ const userController = {
               /* Crear relacion */
               let rel = {
                 include: [{ association: "product" }],
-                order: [['created_at', 'DESC']],
+                order: [['created_at', 'ASC']],
               };
       
               
