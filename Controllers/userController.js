@@ -150,7 +150,9 @@ const userController = {
       } else {
         let idProfile = req.params.id;
         user.findByPk(idProfile)
+        
         .then((resultado) => {
+          
           return res.render("profileEdit", {user: resultado}),
           console.log(idProfile)
         }).catch((err) => {
@@ -163,7 +165,8 @@ const userController = {
     profileEditSend : function (req, res) {
       let id = req.params.id;
       let data = req.body;
-      
+      console.log(data);
+      if (data.pass != null) {
       user.update(data, {
           where: [{ id: id }],
         })
@@ -174,9 +177,22 @@ const userController = {
         .catch((err) => {
           console.log(err);
         });
+      } else {
+        delete data.pass
+        data.pass= req.session.user.pass
 
+        user.update(data, {
+          where: [{ id: id }],
+        })
+        .then((result) => {
+          return res.redirect("/user/profile/" + id);
+          
+        })
+        .catch((err) => {
+          console.log(err);
+        });
 
-        
+      }
     },
 
 
@@ -222,19 +238,3 @@ module.exports = userController;
 
 
 
-//     profilelogin: function(req, res) {
-//         return res.render('login', {
-
-// //No borrar el codigo de abajo plzzz (28/5)
-// //clave correcta es un boolean que es true cuando el login es exitoso
-// //result es una varaible que que es un objeto que contiene la info del usario que se logeo de la databse
-// //     claveCorrecta= true;
-// //     result= "'1', 'Teresa', 'tere@gmail.com', '1234', 'default-image.png', '2023-05-20 21:58:56', '2023-05-20 21:58:56', NULL
-
-// if (claveCorrecta) {
-    
-//     req.session.user= result.dataValues;
-// }
-
-//         });
-//     }
