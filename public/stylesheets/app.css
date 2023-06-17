@@ -140,7 +140,7 @@ hr {
 }
 
 .logout:hover{
-  color: #1259c3;
+  color: white;
 }
 
 .left-navbar a,
@@ -154,7 +154,7 @@ hr {
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/img-home-banner.jpg);
+  background-image: url(/images/banner-venta-zapatos-deportivos-publicacion-redes-sociales-plantilla-banner-web-facebook_70055-854.avif);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -470,7 +470,7 @@ textarea.form-input {
 }
 
 .btn{
-  background-color: #1259c3;
+  background-color: white;
   padding: 10px 20px;
   border-radius: 4px;
   color: #fff;
@@ -508,7 +508,7 @@ textarea.form-input {
 
   .left-navbar a:hover,
   .right-navbar a:hover {
-    color: var(--light-blue);
+    color: var(--light-gray);
   }
 
   .left-navbar li {
