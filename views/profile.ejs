@@ -25,7 +25,12 @@
 						<% } %>
 					<% } %>
 					</h1>
-					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
+					<div class="col-7 col-md-6">
+						<form action="/user/searchUser" method="GET" class="search-form">
+							<input type="text" name="search" placeholder="Buscar usuarios" class="search-form_input">
+							<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
+						</form>
+					</div>
 				</div>
 				<div>
 					<ul class="">
@@ -51,6 +56,7 @@
 			</div>
 			<!-- Show mis productos -->
 			<% for( let i = 0; i < userdata.product.length; i++ ) { %>
+				
 				<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<a href="/product/id/<%= userdata.product[i].id %>">
@@ -67,6 +73,7 @@
 					</a>
 				</section>
 				</div>
+				
 			<% } %>
 	</div>
 

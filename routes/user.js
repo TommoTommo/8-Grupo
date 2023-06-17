@@ -21,5 +21,5 @@ router.get('/register', userController.formRegister);
 router.post('/register', userController.registerPost); 
 
 router.post('/logout', userController.logout);
-
+router.get('/searchUser', userController.searchUser);
 module.exports = router;

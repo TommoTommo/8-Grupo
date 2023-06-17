@@ -113,6 +113,7 @@ const userController = {
               /* Crear relacion */
               let rel = {
                 include: [{ association: "product" }],
+                order: [['created_at', 'DESC']],
               };
       
               
@@ -178,6 +179,30 @@ const userController = {
         res.clearCookie('userId');
          return res.redirect('/'); 
     }, 
+
+    searchUser: function(req, res) {
+      let busqueda = req.query.search
+    
+     
+   
+         user.findAll({
+          where: [
+            {
+              [op.or]: [
+                { nombre: { [op.like]: "%" + busqueda + "%" } },
+                { email: { [op.like]: "%" + busqueda + "%" } }
+              ]
+            }
+          ]
+         })
+         .then(function (result) {
+          
+        return res.render("searchResultsUser", { listaUser: result });
+           })
+           .catch(function (error) {
+             console.log(error);
+          })
+         }
 
 }
 
